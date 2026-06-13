@@ -14,6 +14,18 @@ title: "5. Claude no VS Code"
 
 -   O que pode fazer: ler e editar arquivos do projeto, gerar scripts e executar comandos
 
+-   MCP e navegação
+
+## Cowork X Claude Code
+
+| | Cowork | Claude Code |
+|---|---|---|
+| **Interface** | Desktop (GUI) | Terminal / VS Code |
+| **Executa código** | Sim, em VM sandboxed | Sim, no terminal local |
+| **Público-alvo** | Conhecimento geral | Desenvolvedor / Usuário avançado |
+| **Acesso a arquivos** | Pasta designada pelo usuário | Direto no filesystem |
+| **MCP** | Sim | Sim |
+
 **Referências:**
 
 -   Extensão no Marketplace: [[marketplace.visualstudio.com]{.underline}](https://marketplace.visualstudio.com/items?itemName=Anthropic.claude-code)

@@ -10,9 +10,8 @@ theme:
     primary: indigo
     accent: indigo
   features:
-    - navigation.tabs
     - navigation.top
-    - toc.integrate
+    - navigation.sections
     - content.code.copy
 
 markdown_extensions:
@@ -21,13 +20,22 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight:
       anchor_linenums: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - toc:
       permalink: true
 
 nav:
-  - 'Objetivos': 'index.md'
+  - 'Conteúdo': 'index.md'
   - '1. Markdown, XML e Placeholders': '01-markdown-xml-placeholders.md'
   - '2. Engenharia de Prompt': '02-engenharia-de-prompt.md'
   - '3. Agentes do Copilot': '03-agentes-copilot.md'
   - '4. Skills': '04-skills.md'
   - '5. Claude no VS Code': '05-claude-vscode.md'
+
+
+extra:
+  generator: false
+
+copyright: José Eduardo de Souza Pimentel - Bauru-SP, Agosto de 2026.
