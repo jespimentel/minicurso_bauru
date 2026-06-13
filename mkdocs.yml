@@ -1,0 +1,33 @@
+site_name: Prompts, Skills e Agentes de IA para a Promotoria de Justiça
+site_author: José Eduardo de Souza Pimentel
+docs_dir: docs
+
+theme:
+  name: material
+  language: pt
+  palette:
+    scheme: default
+    primary: indigo
+    accent: indigo
+  features:
+    - navigation.tabs
+    - navigation.top
+    - toc.integrate
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - toc:
+      permalink: true
+
+nav:
+  - 'Objetivos': 'index.md'
+  - '1. Markdown, XML e Placeholders': '01-markdown-xml-placeholders.md'
+  - '2. Engenharia de Prompt': '02-engenharia-de-prompt.md'
+  - '3. Agentes do Copilot': '03-agentes-copilot.md'
+  - '4. Skills': '04-skills.md'
+  - '5. Claude no VS Code': '05-claude-vscode.md'
