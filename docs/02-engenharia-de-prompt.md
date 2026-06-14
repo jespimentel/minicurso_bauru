@@ -6,12 +6,12 @@ title: "2. Engenharia de Prompt"
 
 | # | Elemento | O que define | Exemplo |
 |---|----------|--------------|---------|
-| 1 | **Papel/contexto** | Persona e cenário no qual a tarefa será realizada | *"Você é um promotor de justiça criminal e está sendo intimado da sentença que é fornecida em PDF com este prompt."* |
-| 2 | **Instrução clara** | define as tarefas que o modelo deve executar (exemplos: "analise", "compare", "liste", "reescreva" etc.).  | *"Resuma o documento abaixo de forma estruturada, citando as infrações criminais cometidas"* |
-| 3 | **Insumo/contexto factual** | O material concreto sobre o qual o modelo trabalhará | Texto legal, peças de um inquérito civil, acórdão, documento anexado, etc |
-| 4 | **Formato de saída** | Estrutura esperada do resultado | *"Responda em Markdown com seções: Fatos, Fundamentação e Requerimentos."* |
-| 5 | **Restrições e tom** | Limites de extensão, nível de formalidade, exclusões | *"Máximo de 500 palavras. Linguagem técnico-jurídica. Não cite jurisprudência"* |
-| 6 | **Exemplos (few-shot)** | Um ou dois modelos do output desejado | Peça análoga já aprovada, parágrafo-modelo, estrutura de denúncia anterior |
+| 1 | **Papel/contexto** | Persona e cenário no qual a tarefa será realizada | *"Você é um promotor de justiça criminal e está sendo intimado da sentença fornecida em PDF."* |
+| 2 | **Restrições e tom** | Limites de extensão, nível de formalidade, exclusões | *"Máximo de 500 palavras. Linguagem técnico-jurídica. Não cite jurisprudência."* |
+| 3 | **Exemplos (few-shot)** | Um ou dois modelos do output desejado | Peça análoga já aprovada, parágrafo-modelo, estrutura de denúncia anterior |
+| 4 | **Insumo/contexto factual** | O material concreto sobre o qual o modelo trabalhará | Texto legal, peças de um inquérito, acórdão, documento anexado etc. |
+| 5 | **Instrução clara** | Define as tarefas que o modelo deve executar ("analise", "compare", "liste", "reescreva" etc.) | *"Resuma o documento acima de forma estruturada, citando as infrações criminais cometidas."* |
+| 6 | **Formato de saída** | Estrutura esperada do resultado | *"Responda em Markdown com seções: Fatos, Fundamentação e Requerimentos."* |
 
 ## Técnicas de Prompting
 
@@ -49,7 +49,12 @@ title: "2. Engenharia de Prompt"
 
 -   Se o prompt for **complexo** (envolver dados do usuário, muitos exemplos ou regras rígidas): use **XML para isolar os blocos** e **Markdown para formatar o texto**
 
--   A **ordem importa**. O modelo presta mais atenção ao **início** e ao **fim** do prompt. Contexto crítico e instrução principal vão no topo; o insumo (texto longo) vai no meio; e o formato de saída vai no final.
+-   A **ordem importa**. Papel e restrições vão no topo; o insumo vem antes da instrução principal; o formato de saída fecha o prompt. Informações críticas no meio de documentos muito longos (~20 mil tokens ou mais) tendem a ser recuperadas com menos precisão, a menos que estejam ancoradas no início do insumo ou sejam referenciadas explicitamente na instrução.
+
+    !!! note "A ordem importa, mas tags XML atenuam o problema"
+        O princípio "ordem importa" é crítico em prompts de texto corrido, sem
+        marcadores estruturais. Tags XML semânticas ajudam o modelo a identificar
+        cada seção pelo rótulo e minimizam a dependência da posição.
 
 -   **Divida tarefas complexas em subtarefas sequenciais**. Um arquivamento de inquérito, por exemplo, envolve extração de dados, síntese de depoimentos e elaboração da peça. Separe-as em vários prompts: (1) extraia os dados do fato (data, local, envolvidos); (2) resuma as declarações de vítimas, testemunhas e investigados; (3) identifique as provas colhidas; (4) com base nas etapas anteriores, redija as razões de arquivamento (permaneça na mesma conversa se não excedeu a janela de contexto).
 
