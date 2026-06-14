@@ -26,8 +26,8 @@ title: "5. Claude no VS Code"
 | **Acesso a arquivos** | Pasta designada pelo usuário | Direto no filesystem |
 | **MCP** | Sim | Sim |
 
-**Referências:**
+## Referências
 
--   Extensão no Marketplace: [[marketplace.visualstudio.com]{.underline}](https://marketplace.visualstudio.com/items?itemName=Anthropic.claude-code)
+-   [Extensão no Marketplace](https://marketplace.visualstudio.com/items?itemName=Anthropic.claude-code)
 
--   [[docs.anthropic.com/en/docs/claude-code]{.underline}](https://docs.anthropic.com/en/docs/claude-code)
+-   [Anthropic Docs. Claude Code](https://docs.anthropic.com/en/docs/claude-code)

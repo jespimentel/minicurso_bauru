@@ -8,7 +8,7 @@ title: "1. Markdown, XML e Placeholders"
 - Separa visualmente instrução, contexto e formato de saída
 
 ### XML
-- Delimita blocos de maneira inequívoca (`<instrucao>`, `<contexto>`)
+- Delimita blocos de maneira inequívoca (`<instrucao>,</instrucao>`; `<contexto></contexto>`)
 - Evita que o modelo confunda dados com instruções
 - Resolve o problema da ambiguidade semântica do Markdown em prompts longos
 
@@ -29,8 +29,8 @@ title: "1. Markdown, XML e Placeholders"
 
 
 !!! tip "Por que estruturar prompts?"
-    Estrutura não é estética; é semântica. Markdown, XML e placeholders
-    delimitam papéis distintos (instrução, contexto, dado, saída) e reduzem
+    Estrutura não é estética, é semântica. Markdown, XML e placeholders
+    delimitam as seções distintas do prompt (instrução, contexto, dado, saída) e reduzem
     a ambiguidade que faz o modelo errar!
 
 
@@ -103,7 +103,7 @@ violência doméstica, manifesto-me favoravelmente ao pedido.
 
 ```
 
-## Referências:
+## Referências
 
 -   [Markdown Guide](https://www.markdownguide.org/basic-syntax/)
 

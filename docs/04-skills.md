@@ -18,9 +18,9 @@ title: "4. Skills"
 
 -   Demonstração: a skill analise-processual em operação
 
-**Referências:**
+## Referências
 
--   Anthropic Cookbook: [[github.com/anthropics/anthropic-cookbook]{.underline}](https://github.com/anthropics/anthropic-cookbook)
+-   [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)
 
 \-\--
 
