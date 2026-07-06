@@ -22,7 +22,7 @@ title: "2. Engenharia de Prompt"
 - Exemplo: *"Classifique este texto como positivo ou negativo: 'O réu não compareceu à audiência.'"*
 
 ### Few-shot
-- O prompt inclui **alguns exemplos** (tipicamente 2–5) do padrão esperado antes da tarefa real
+- O prompt inclui **alguns exemplos** (tipicamente entre 2 e 5) do padrão esperado antes da tarefa real
 - Os exemplos atuam como demonstrações implícitas do formato e raciocínio desejados
 - Melhora significativamente tarefas com formato específico ou vocabulário técnico
 - Exemplo: fornecer 3 denúncias já redigidas antes de pedir a quarta; o modelo infere estrutura, tom e nível de detalhe
@@ -59,7 +59,7 @@ title: "2. Engenharia de Prompt"
 -   **Divida tarefas complexas em subtarefas sequenciais**. Um arquivamento de inquérito, por exemplo, envolve extração de dados, síntese de depoimentos e elaboração da peça. Separe-as em vários prompts: (1) extraia os dados do fato (data, local, envolvidos); (2) resuma as declarações de vítimas, testemunhas e investigados; (3) identifique as provas colhidas; (4) com base nas etapas anteriores, redija as razões de arquivamento (permaneça na mesma conversa se não excedeu a janela de contexto).
 
     !!! tip "Tarefas complexas podem ser divididas com skills"
-        Você poderia ter uma skill de `analise-processual` e outra especializada em `arquivamento` de inquéritos. Esta última receberia o output da análise e produziria a minuta da promoção de arquivamento, encadeando duas conversas separadas e limpas. Veremos skills na parte 4 do nosso minicurso.
+        Você poderia ter uma skill de `analise-processual` e outra especializada em `arquivamento` de inquéritos. Esta última receberia o output da análise e produziria a minuta da promoção de arquivamento, encadeando duas conversas separadas e limpas. Veremos as skills na seção 4 do nosso minicurso.
 
 
 ### Denunciador com exemplos

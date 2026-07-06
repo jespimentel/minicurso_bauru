@@ -30,7 +30,7 @@ source .venv/bin/activate        # Linux/macOS
 # Instale as dependências
 pip install mkdocs-material
 
-# Sirva localmente
+# Ative o servidor local
 mkdocs serve
 ```
 

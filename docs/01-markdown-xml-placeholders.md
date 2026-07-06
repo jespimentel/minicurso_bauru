@@ -1,27 +1,36 @@
 ---
 title: "1. Markdown, XML e Placeholders"
 ---
+
 ## Estruturação de prompts
 
 ### Markdown
-- Cria hierarquia que o modelo interpreta como estrutura semântica
-- Separa visualmente instrução, contexto e formato de saída
+- Cria hierarquia que o modelo interpreta como **estrutura semântica** (relação lógica entre as partes: ordem do usuário, dado de apoio, como um documento e metadados, como o nome do arquivo)
+- Separa visualmente instrução, contexto e formato de saída (legibilidade para o humano)
 
 ### XML
 - Delimita blocos de maneira inequívoca (`<instrucao>,</instrucao>`; `<contexto></contexto>`)
 - Evita que o modelo confunda dados com instruções
-- Resolve o problema da ambiguidade semântica do Markdown em prompts longos
+- Mitiga a ambiguidade semântica do Markdown em prompts longos
 
 ```xml
-<contexto>
-  Réu preso em flagrante por tráfico.
-</contexto>
 
+<contexto>
+Réu preso em flagrante por tráfico. 500g de cocaína, fls. 12.
+Condenado em 1ª instância; defesa apelou (fls. 123).
+Razões da apelação (fls. 210):
+"Pela r. Sentença de fls. 123, o apelante FULANO DE TAL foi condenado ..."
+</contexto>
 <instrucao>
-  Redija a denúncia com base no contexto acima.
+Liste os pedidos da apelação defensiva fornecida no contexto.
 </instrucao>
 
 ```
+!!!warning "Interfaces do Copilot podem bloquear < e >"
+       Em alguns contextos, as interfaces do **Copilot Studio** e do **Agente Builder** bloqueiam instruções com tags XML. A IA as leriam normalmente.
+       Se isso acontecer, estruture os prompts exclusivamente com Markdown (Ex.: # SEÇÃO).
+
+![](img/bloqueio_tags.png)
 
 ### Placeholders
 - Transformam o prompt em template reutilizável (`{{nome_do_réu}}`)
@@ -30,8 +39,7 @@ title: "1. Markdown, XML e Placeholders"
 
 !!! tip "Por que estruturar prompts?"
     Estrutura não é estética, é semântica. Markdown, XML e placeholders
-    delimitam as seções distintas do prompt (instrução, contexto, dado, saída) e reduzem
-    a ambiguidade que faz o modelo errar!
+    delimitam as seções distintas do prompt (instrução, contexto, dado, saída) e reduzem a ambiguidade que faz o modelo errar.
 
 
 ## Elementos do Markdown
@@ -53,7 +61,9 @@ title: "1. Markdown, XML e Placeholders"
 | `---` | Linha horizontal para separar seções | `---` |
 
 
-## Exemplo
+## Exemplos
+
+### Manifestação sobre concessão de MPU
 
 ```markdown
 <contexto>
@@ -102,6 +112,31 @@ violência doméstica, manifesto-me favoravelmente ao pedido.
 </modelo>
 
 ```
+### Prompt para "multidocumentos" (uso com API)
+
+```markdown
+<documents>
+  <document index="1">
+    <source>annual_report_2023.pdf</source>
+    <document_content>
+      {{ANNUAL_REPORT}}
+    </document_content>
+  </document>
+  <document index="2">
+    <source>competitor_analysis_q2.xlsx</source>
+    <document_content>
+      {{COMPETITOR_ANALYSIS}}
+    </document_content>
+  </document>
+</documents>
+
+Analise o relatório anual e a análise dos concorrentes. Identifique vantagens estratégicas e recomende áreas de foco para o terceiro trimestre (Q3).
+
+```
+Fonte: Anthropic. Adaptado pelo autor
+
+!!! tip "Dica PRO: injetando conteúdo de documentos em prompts com uso da API"
+    A tag `<source>` funciona como um **metadado** que identifica a origem do arquivo para a IA, enquanto o texto entre chaves `{{ANNUAL_REPORT}}` é um ***placeholder* (variável)** que um script substitui pelo conteúdo real do PDF antes de enviar o prompt final, permitindo automatizar a análise de documentos de forma organizada e reutilizável.
 
 ## Referências
 

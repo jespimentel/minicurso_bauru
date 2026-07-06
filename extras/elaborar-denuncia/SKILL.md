@@ -1,39 +1,4 @@
 ---
-title: "4. Skills"
----
-
-## O que é Skill?
-
-Skill é um procedimento salvo em pasta, composto por instruções e, opcionalmente, scripts e modelos, que é acionado quando um pedido corresponde a seu gatilho.
-
-Nesse momento ele se ativa sozinho, executa o roteiro, preenchendo gradativamente a janela de contexto e entrega o resultado. Funciona em qualquer conversa. 
-
-O que a distingue é a divisão de trabalho: a skill fixa o *como se faz* e deixa o *sobre o quê* variar, ou seja, uma mesma receita é aplicada a casos diferentes. Nesse aspecto difere dos GPTs, Gems, Projetos e Agentes do Copilot, que são criados com conteúdo fixo. 
-
-Além disso, a skill não carrega apenas texto: pode rodar scripts, consultar modelos e se combinar com outras skills. Pode ainda acessar dados externos por meio de conectores MCP (declarados fora da skill), como buscar peças no `Google Drive`. 
-
-## Prompts x Gems/GPTs x Skills
-
-| Categoria | Ferramentas | Como funciona | Use quando |
-|---|---|---|---|
-| **Instrução avulsa** | Prompt | Você digita a instrução inteira a cada operação | Tarefa pontual, teste rápido, ajuste interativo |
-| **"Lugar" que você configura e abre** | Projeto · GPT · Gem · Agente Copilot | Você monta um espaço com contexto, persona e/ou dados fixos. As operações seguem sempre as mesmas regras (e só dentro daquele espaço) | Você precisa de um ambiente estável em torno de um assunto, um papel ou uma base de dados |
-| **Capacidade que vem até você** | Skill | Fica dormente até o pedido casar com sua descrição; então se ativa sozinha, executa o procedimento (com scripts e modelos) e funciona em qualquer conversa. Compõe com outras skills | O método é fixo, mas as matérias mudam. É uma mesma receita usada em casos diferentes |
-
-## Anatomia de uma Skill
-
-### O arquivo SKILL.md
-
-- Uma skill é, no mínimo, uma pasta com um arquivo obrigatório: o SKILL.md.
-- Frontmatter (YAML): os campos name e description ficam pré-carregados e servem de vitrine para o modelo escolher qual skill acionar.
-- `description`: o gatilho. Diz o que a skill faz e quando usá-la, com expressões, tipos de arquivo e tipos de tarefa que sinalizam a correspondência com o pedido.
-- Corpo (em Markdown): as instruções de execução. Procedimento passo a passo, regras de domínio e travas de segurança.
-- Regra prática: manter o corpo da skill enxuto (abaixo de ~500 linhas), como um índice do método que remete aos arquivos auxiliares.
-
-### Exemplo `elaborar-denuncia`
-
-```markdown
----
 name: elaborar-denuncia
 description: >
   Elabora uma denúncia criminal (peça acusatória) em Português a partir de um Relatório de Análise
@@ -230,7 +195,7 @@ fatos.
 Antes de redigir a denúncia, produza obrigatoriamente o bloco abaixo. Ele serve de raciocínio
 prévio e **não** faz parte da peça final.
 
-
+```
 ANÁLISE PRELIMINAR (não integra a peça)
 
 1. Indiciados
@@ -256,6 +221,7 @@ ANÁLISE PRELIMINAR (não integra a peça)
 
 7. Lacunas
    {{Descrever ou "Nenhuma"}}
+```
 
 ---
 
@@ -312,65 +278,3 @@ com dado extraído da análise, ancorando os fatos em `(fls. XX)`.
    ancorando cada fato em `(fls. XX)` da análise.
 9. Entregue **apenas o texto da denúncia** (em prosa, pronto para colar). **Só gere arquivo
    (`.docx`/`.pdf` ou outro) se o usuário pedir explicitamente**; por padrão, nada de arquivos.
-
-```
-
-![](img/carregamento_skill.png)
-
-### Recursos e o disclosure progressivo
-
-- Recursos opcionais se distribuem em pastas distintas; a separação sustenta o carregamento sob demanda.
-- `scripts/`: arquivos executáveis (Python/bash) que o modelo roda sem carregar o código no contexto.
-- `references/`: documentos lidos sob demanda (guia de estilo, tabela de capitulação).
-- `assets/`: modelos e arquivos-base.
-- **MCP (conexão, não pasta):** a skill acessa dados externos chamando ferramentas MCP pelo nome qualificado (ex.: `Google Drive:read_file_content`). A conexão é declarada fora da skill (pela UI de conectores no navegador ou pelo `.mcp.json` no Claude Code), e o nome do servidor deve coincidir com o indicado na skill.
-- Exemplos têm função dupla — veja na skill `elaborar-denuncia`:
-    - na `description`: frases reais ("elabore a denúncia", "capitule e ofereça denúncia") + um exemplo negativo ("NÃO acione após a análise") tornam o gatilho preciso;
-    - em `references/exemplos.md`: os casos (tráfico, furto, concurso) servem de gabarito de saída (estrutura, tom, economia argumentativa), lidos só na hora de redigir.
-
-!!!note "Resumindo..."
-    Um `SKILL.md` orquestra recursos que só carregam quando necessários. Skill é, portanto, um método complexo empacotado, que economiza a janela de contexto e pode ser reutulizado em qualquer projeto ou conversa.
-
-## Criando uma Skill com apoio do Claude (Ex.: `elaborar-denuncia`)
-
-Por que fazer pelo Claude? Porque ele dispõe da `skill-creator`, uma skill nativa que é acionada quando você pede ajuda para criar ou aprimorar skills: ela enquadra o problema, rascunha o `SKILL.md`, sugere a estrutura de pastas e ajuda a empacotar. 
-
-> Todo este fluxo é feito no navegador (Claude.ai). 
-
-### Roteiro
-
-- Diga ao Claude "transforme este prompt/fluxo numa skill" — ele aciona a `skill-creator` e aproveita o histórico da conversa para extrair os passos, ferramentas e correções.
-- Antes de rascunhar uma skill, reflita sobre: 1) o que a skill habilita; 2) quando dispara (frases reais); 3) qual o formato de saída; 4) se vale criar casos de teste.
-- Forneça os insumos: os conectores adequados (ex.: Google Drive MCP, ligado pela UI de conectores), a sequência de passos (análise → Passo 0 → redação) e os formatos desejados. Peça ao Claude que faça perguntas sobre os pontos duvidosos.
-- Deixe o Claude escrever o rascunho do `SKILL.md`. Ao revisar, atente para:
-    - a **description** — é o gatilho; revise sempre;
-    - o **disparo explícito** — no caso de `elaborar-denuncia`, optei pela trava explícita, para que não seja acionada após a análise;
-    - o **disclosure progressivo** — exemplos e template em `references/`, que são lidos só na hora de redigir.
-- Rode a skill em casos representativos (tráfico, furto, concurso material etc.). No navegador é um de cada vez (sem subagentes): o Claude lê o `SKILL.md` e executa a tarefa.
-- Revise os resultados e itere. A seu pedido, o Claude reescreve a skill e repete até o resultado ficar bom.
-- Ao final, empacote a skill (`.skill`). O empacotamento funciona no navegador e serve para que a skill possa ser carregada no seu perfil e compartilhada com colegas.
-
-
-!!!tip "Iteração"
-    Criar skill com o Claude é um laço: rascunhar, rodar em casos reais, revisar com nosso olhar de Promotor, corrigir. Itere até o método ficar reutilizável. Depois, compartilhe com os colegas.
-
-## Estrutura da pasta
-
-```markdown
-elaborar-denuncia/            # sobe como .zip (ou botão "salvar") em Customize > Skills
-├── SKILL.md                  # frontmatter (name + description/gatilho) + método
-└── references/               # disclosure progressivo (lido sob demanda)
-    ├── template.md           # estrutura da peça — lido só ao redigir
-    └── exemplos.md           # exemplos de saída — só sem modelo do índice/colado
-
-# Fora da skill (não é empacotado):
-Conector Google Drive .......... ligado na UI de conectores (sem arquivo)
-Google Drive (externo, via MCP)
-└── modelos_denuncias/
-    ├── indice.md
-    └── *.md                   # modelos de peças
-```
-
-## Referências
-
--   [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)

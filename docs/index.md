@@ -1,7 +1,7 @@
 ---
 title: Prompts, Skills e Agentes de IA para a Promotoria de Justiça
 author: José Eduardo de Souza Pimentel
-date: Agosto de 2026
+date: 2026
 ---
 
 # Objetivos do minicurso
@@ -10,8 +10,10 @@ date: Agosto de 2026
 
 -   Aplicar técnicas de **engenharia de prompt** às tarefas da Promotoria de Justiça.
 
--   Configurar "agentes" no **MS Copilot** para contas corporativas.
+-   Configurar "agentes" no **Copilot** para contas corporativas.
 
 -   Criar e versionar **Skills** para as atividades recorrentes.
 
--   Conhecer o **Claude no VS Code** como ferramenta de leitura e acesso a arquivos, geração de scripts e execução de automações.
+-   Conhecer o **Claude no VS Code** como ferramenta de leitura e acesso a arquivos, geração de scripts e execução de aplicativos e automações para a Promotoria de Justiça.
+
+**José Eduardo de Souza Pimentel**
