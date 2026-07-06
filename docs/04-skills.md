@@ -376,7 +376,7 @@ Google Drive (externo, via MCP)
 
 ## Referências
 
-- [ANTHROPIC. Agent Skills (docs)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) e https://github.com/anthropics/skills
+- [ANTHROPIC. Agent Skills (docs)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)
 
 - [ANTHROPIC. Repositório público de skills](https://github.com/anthropics/skills)
 

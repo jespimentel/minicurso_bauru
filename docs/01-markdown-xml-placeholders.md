@@ -140,6 +140,6 @@ Fonte: Anthropic. Adaptado pelo autor
 
 ## Referências
 
--  [ANTHROPIC.. Structure prompts with XML tags](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#structure-prompts-with-xml-tags/)
+-  [ANTHROPIC. Structure prompts with XML tags](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#structure-prompts-with-xml-tags/)
 
 -  [MARKDOWN GUIDE](https://www.markdownguide.org/basic-syntax/)
