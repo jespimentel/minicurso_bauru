@@ -1,0 +1,1110 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="José Eduardo de Souza Pimentel">
+      
+      
+      
+        <link rel="prev" href="../02-engenharia-de-prompt/">
+      
+      
+        <link rel="next" href="../04-skills/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>3. Agentes de IA e Copilot - Prompts, Skills e Agentes de IA para a Promotoria de Justiça</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#o-que-sao-agentes-de-ia" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Prompts, Skills e Agentes de IA para a Promotoria de Justiça" class="md-header__button md-logo" aria-label="Prompts, Skills e Agentes de IA para a Promotoria de Justiça" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prompts, Skills e Agentes de IA para a Promotoria de Justiça
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Agentes de IA e Copilot
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Prompts, Skills e Agentes de IA para a Promotoria de Justiça" class="md-nav__button md-logo" aria-label="Prompts, Skills e Agentes de IA para a Promotoria de Justiça" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Prompts, Skills e Agentes de IA para a Promotoria de Justiça
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conteúdo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-markdown-xml-placeholders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Markdown, XML e Placeholders
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-engenharia-de-prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Engenharia de Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Agentes de IA e Copilot
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Agentes de IA e Copilot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-sao-agentes-de-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que são Agentes de IA?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentes-copilot-sao-agentes-de-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Agentes" Copilot são Agentes de IA?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agente-declarativo-x-agente-autonomo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agente declarativo X Agente autônomo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-usar-o-copilot-na-promotoria-de-justica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Por que usar o Copilot na Promotoria de Justiça?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Por que usar o Copilot na Promotoria de Justiça?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integracao-nativa-com-o-ambiente-microsoft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integração nativa com o ambiente Microsoft
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sigilo-e-conformidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sigilo e conformidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beneficios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefícios
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copilot-chat-x-copilot-premium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copilot Chat X Copilot Premium
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcao-conhecimento-premium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Função "Conhecimento" (Premium)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pratica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prática
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prática">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dicas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-criacao-do-steve-analista-juridico-jr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo: criação do "Steve, Analista Jurídico Jr."
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referências
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-claude-vscode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Claude no VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-sao-agentes-de-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que são Agentes de IA?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentes-copilot-sao-agentes-de-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Agentes" Copilot são Agentes de IA?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agente-declarativo-x-agente-autonomo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agente declarativo X Agente autônomo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-usar-o-copilot-na-promotoria-de-justica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Por que usar o Copilot na Promotoria de Justiça?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Por que usar o Copilot na Promotoria de Justiça?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integracao-nativa-com-o-ambiente-microsoft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integração nativa com o ambiente Microsoft
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sigilo-e-conformidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sigilo e conformidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beneficios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefícios
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copilot-chat-x-copilot-premium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copilot Chat X Copilot Premium
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcao-conhecimento-premium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Função "Conhecimento" (Premium)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pratica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prática
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prática">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dicas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-criacao-do-steve-analista-juridico-jr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo: criação do "Steve, Analista Jurídico Jr."
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referências
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>3. Agentes de IA e Copilot</h1>
+
+<h2 id="o-que-sao-agentes-de-ia">O que são Agentes de IA?<a class="headerlink" href="#o-que-sao-agentes-de-ia" title="Permanent link">&para;</a></h2>
+<p>Um <strong>Agente de IA</strong> é um sistema de software <strong>autônomo</strong> capaz de perceber seu ambiente (por meio de dados ou inputs), <strong>tomar decisões</strong> e <strong>executar ações</strong> para atingir <strong>objetivos específicos</strong>, operando com <strong>pouca ou nenhuma intervenção humana direta</strong>.</p>
+<h2 id="agentes-copilot-sao-agentes-de-ia">"Agentes" Copilot são Agentes de IA?<a class="headerlink" href="#agentes-copilot-sao-agentes-de-ia" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Autonomia não é "sim ou não", é uma escala.</strong> Vai do que só responde quando você pede até o que age sozinho. A Microsoft chama tudo de "agente", mas há níveis bem diferentes.</p>
+</li>
+<li>
+<p><strong>O que seria um agente "de verdade":</strong> decide sozinho o que fazer; executa ações (não só escreve); faz vários passos em sequência; e começa por conta própria.</p>
+</li>
+<li>
+<p><strong>A maioria dos agentes criados no Copilot:</strong> tem uma persona (instruções) e pode consultar uma base de conhecimento. Você pede, ele responde e para. É um <strong>assistente</strong> bem configurado, não um <strong>agente</strong> que age sozinho.</p>
+</li>
+<li>
+<p><strong>E quando ele consulta a web?</strong> O que importa não é <em>acessar</em> a internet, e sim <em>quem decide os passos</em>:</p>
+<ul>
+<li>busca simples (uma consulta e responde) → continua reativo, só com fonte mais ampla;</li>
+<li>busca que itera sozinha (formula buscas, segue links, refaz) → aí, sim, sobe na escala.</li>
+</ul>
+</li>
+<li>
+<p><strong>O Copilot Studio completo:</strong> pode usar ferramentas, decidir sozinho o que consultar e ser disparado automaticamente → <strong>Aí, sim, age como agente.</strong></p>
+</li>
+<li>
+<p><strong>Na Promotoria, controlar é melhor que automatizar tudo:</strong> vale mais um assistente que para e espera sua revisão do que um que age e decide tudo sozinho.</p>
+</li>
+</ul>
+<h2 id="agente-declarativo-x-agente-autonomo">Agente declarativo X Agente autônomo<a class="headerlink" href="#agente-declarativo-x-agente-autonomo" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Critério</th>
+<th>Agente declarativo (Copilot)</th>
+<th>Agentes autônomo (Claude Code, Codex, Devin etc.)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>O que faz</strong></td>
+<td>Gera texto no chat</td>
+<td>Executa trabalho no computador</td>
+</tr>
+<tr>
+<td><strong>Acessa arquivos</strong></td>
+<td>Só a base de conhecimento</td>
+<td>Lê, cria e edita arquivos reais</td>
+</tr>
+<tr>
+<td><strong>Roda código</strong></td>
+<td>Não</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td><strong>Decide os passos</strong></td>
+<td>Não (reage ao que você pede)</td>
+<td>Sim (planeja e encadeia ações)</td>
+</tr>
+<tr>
+<td><strong>Resultado</strong></td>
+<td>Texto para você revisar</td>
+<td>Tarefa concluída (pipeline, docx, pdf...)</td>
+</tr>
+<tr>
+<td><strong>Nível de autonomia</strong></td>
+<td>Assistente configurado</td>
+<td>Agente autônomo</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Por que agente declarativo?</p>
+<p>Tudo que o agente sabe fazer é declarado
+em linguagem natural: persona, conhecimento
+e escopo. Sem código, sem lógica, sem fluxos.</p>
+</div>
+<h2 id="por-que-usar-o-copilot-na-promotoria-de-justica">Por que usar o Copilot na Promotoria de Justiça?<a class="headerlink" href="#por-que-usar-o-copilot-na-promotoria-de-justica" title="Permanent link">&para;</a></h2>
+<h3 id="integracao-nativa-com-o-ambiente-microsoft">Integração nativa com o ambiente Microsoft<a class="headerlink" href="#integracao-nativa-com-o-ambiente-microsoft" title="Permanent link">&para;</a></h3>
+<p>O Copilot está integrado ao ecossistema já usado no MPSP, o Microsoft 365, 
+sem necessidade de instalar ferramentas externas ou criar ambientes separados. </p>
+<h3 id="sigilo-e-conformidade">Sigilo e conformidade<a class="headerlink" href="#sigilo-e-conformidade" title="Permanent link">&para;</a></h3>
+<p>Os dados permanecem dentro do tenant Microsoft da instituição. Nenhum conteúdo
+é usado para treinar modelos externos. A infraestrutura segue as políticas de
+segurança e residência de dados já aplicadas ao ambiente corporativo. É aderente 
+ao <strong>Aviso nº 009/2025-CGMP, de 27/06/2025</strong>, que trata do uso de IA Generativa 
+na Instituição.</p>
+<h3 id="beneficios">Benefícios<a class="headerlink" href="#beneficios" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Configuração:</strong> simples e feita por interface gráfica, sem código</li>
+<li><strong>Base de conhecimento:</strong> upload de arquivos (modelos, tabelas, referências) que o agente consulta para gerar respostas</li>
+<li><strong>Distribuição interna:</strong> compartilhamento direto no Teams ou SharePoint, sem publicação externa</li>
+<li><strong>Configuração controlada:</strong> sem memória entre sessões, sem conectores ativos, sem acesso a APIs externas (o agente responde só com o que você definiu).</li>
+</ul>
+<h2 id="copilot-chat-x-copilot-premium">Copilot Chat X Copilot Premium<a class="headerlink" href="#copilot-chat-x-copilot-premium" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Recurso / capacidade</th>
+<th>Copilot Chat (incluso no E3)</th>
+<th>Add-on Microsoft 365 Copilot (premium)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Criar agente declarativo (Agent Builder)</td>
+<td>Sim — sem grounding no tenant (ver abaixo)</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Agente com instruções + web pública</td>
+<td>Sim — sem custo</td>
+<td>Sim — sem custo</td>
+</tr>
+<tr>
+<td>Grounding em SharePoint/OneDrive (dados do tenant)</td>
+<td>Não — salvo com usage-based billing (cobrança por consumo)</td>
+<td>Sim — incluso, sem cobrança por consumo</td>
+</tr>
+<tr>
+<td>Anexar arquivo embutido (upload do dispositivo)</td>
+<td>Não — salvo com usage-based billing</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>E-mail (Outlook) e Teams como fonte</td>
+<td>Não</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>People data (dados de pessoas do tenant: perfis, organograma, interações)</td>
+<td>Não</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Limite de tamanho de arquivo (SharePoint)</td>
+<td>~7 MB por arquivo — limitação de memória sem licença</td>
+<td>200 MB — 512 MB para arquivo individual (PDF/PPTX/DOCX)</td>
+</tr>
+<tr>
+<td>Busca inteligente nos documentos do tenant (SharePoint)</td>
+<td>Não — busca simples, limitada a arquivos de até ~7 MB</td>
+<td>Sim — exige licença M365 Copilot no tenant e agente autenticado via conta Microsoft (respeita as permissões de cada usuário)</td>
+</tr>
+<tr>
+<td>Criação de agentes no Copilot Studio</td>
+<td>Não — exige licença</td>
+<td>Sim</td>
+</tr>
+</tbody>
+</table>
+<p>Fonte: Documentação oficial do Microsoft Learn (learn.microsoft.com). Acesso em jul. 2026. Licenciamentos sujeitos a alteração. </p>
+<h2 id="funcao-conhecimento-premium">Função "Conhecimento" (Premium)<a class="headerlink" href="#funcao-conhecimento-premium" title="Permanent link">&para;</a></h2>
+<p>Base de conhecimento por recuperação (RAG): o agente busca trechos relevantes de documentos quando precisa, em vez de mantê-los fixos no contexto.</p>
+<ul>
+<li><strong>No prompt:</strong> o que se aplica <em>sempre</em> (regras, template, travas).</li>
+<li><strong>No conhecimento:</strong> referência estável, consultada conforme o caso (ex.: catálogo de modelos, manual de regras).</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">A recuperação é sempre probabilística</p>
+<p>O trecho certo pode não vir. Por iss, travas antialucinação ("base exclusiva no PDF", "NÃO CONSTA NO PDF", proibição de inferência) e template ficam <strong>no prompt</strong>, nunca só no conhecimento. Ao usar modelos como conhecimento, marque sempre "dados fictícios, não incorporar" <em>dentro do próprio arquivo</em>, para evitar com que o agente use os nomes/valores neles contidos.</p>
+</div>
+<h2 id="pratica">Prática<a class="headerlink" href="#pratica" title="Permanent link">&para;</a></h2>
+<h3 id="dicas">Dicas<a class="headerlink" href="#dicas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Ancore tudo ao documento do caso. Diga ao agente para usar só o que está no PDF e escrever "NÃO CONSTA NO PDF" quando faltar dado. Assim ele não inventa fato para preencher vazio.</p>
+</li>
+<li>
+<p>Coloque as regras importantes no prompt, não na base de Conhecimento. O agente nem sempre "lembra" de consultar a base; o que é obrigatório precisa estar nas instruções, que valem sempre.</p>
+</li>
+<li>
+<p>Peça a citação das folhas (fls.) em cada afirmação. Sem isso, você terá de reconferir a peça inteira e perde o ganho de tempo.</p>
+</li>
+<li>
+<p>Tenha agentes especializados. Um para denúncia, um para contrarrazões, um para resumir inquérito. Vários agentes simples funcionam melhor que um "faz-tudo" (fig. abaixo).</p>
+</li>
+<li>
+<p>Organize a base de conhecimento: poucos arquivos, nomes claros. Nomear por tipo penal ("denuncia_trafico") ajuda o agente a achar o modelo certo.</p>
+</li>
+<li>
+<p>Se usar modelos como exemplo, avise que são só referência de estilo. Escreva no próprio arquivo "dados fictícios — não copiar nomes/valores", senão o agente pode reaproveitar conteúdo do modelo na peça.</p>
+</li>
+<li>
+<p>Guarde os prompts que funcionaram. Crie um sistema de versionamento. Quando ajustar e piorar, você consegue voltar ao que dava certo.</p>
+</li>
+<li>
+<p>Trate a resposta como minuta, nunca como peça pronta. Sempre revise capitulação, concurso e pena. O agente erra.</p>
+</li>
+</ul>
+<p><img alt="" src="../img/agentes_especializados.png" /></p>
+<h3 id="exemplo-criacao-do-steve-analista-juridico-jr">Exemplo: criação do "Steve, Analista Jurídico Jr."<a class="headerlink" href="#exemplo-criacao-do-steve-analista-juridico-jr" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Entre no <strong>Agente Builder</strong></li>
+<li>Dê um nome ao seu agente (Mike, Brian etc.)</li>
+<li>Faça uma breve descrição de seu uso</li>
+<li>Edite as intruções abaixo, ajustando-as a seu gosto, e cole no campo apropriado</li>
+<li>Habilite a pesquisa em "todos os sites"</li>
+<li>Se preferir, use e compartilhe com os colegas o <a href="https://m365.cloud.microsoft/chat/?titleId=T_e243034b-2fbf-3526-3a9a-7d87d9561a43&amp;source=embedded-builder">Steve</a> original e versionado (é preciso estar logado na conta corporativa)</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gh"># PERFIL</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Você é um Analista Jurídico do Ministério Público, especializado na análise de autos processuais e na elaboração de manifestações precisas. Você se comunica em Português (BR), utilizando linguagem clara, técnica e objetiva.
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="gh"># OBJETIVO</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Produzir uma manifestação processual completa em duas etapas:
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">-</span><span class="w"> </span><span class="gs">**ETAPA 1 — Relatório:**</span> Resumo imparcial e detalhado dos fatos e provas contidos no PDF fornecido.
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">-</span><span class="w"> </span><span class="gs">**ETAPA 2 — Manifestação Final:**</span> Integração do Relatório (Etapa 1) com a tese jurídica e a conclusão fornecidas pelo usuário, produzindo texto único, coeso e tecnicamente persuasivo.
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="gh"># FLUXO DE TRABALHO</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>Siga rigorosamente esta sequência interativa, sem antecipar etapas:
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">1.</span> <span class="gs">**Análise e Relatório:**</span> Após receber o PDF, analise-o e produza o Relatório (Etapa 1).
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="k">2.</span> <span class="gs">**Validação do Relatório:**</span> Apresente o relatório e pergunte ao usuário se está correto e completo ou se necessita de ajustes. Aguarde confirmação expressa antes de prosseguir.
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="k">3.</span> <span class="gs">**Solicitação de Fundamentos:**</span> Com o relatório aprovado, solicite ao usuário a tese jurídica (fundamentação) e a conclusão para o caso.
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="k">4.</span> <span class="gs">**Elaboração da Manifestação Final:**</span> Com as informações fornecidas, redija a Manifestação Final (Etapa 2).
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="k">5.</span> <span class="gs">**Validação Final:**</span> Apresente o texto final e pergunte por eventuais ajustes. Realize as modificações solicitadas até a aprovação do usuário.
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="gh"># ETAPA 1: RELATÓRIO DOS FATOS E PROVAS</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="gu">## Tarefa</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>Com base exclusivamente no PDF fornecido, elabore um resumo dos fatos e das provas.
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="gu">## Conteúdo Obrigatório</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Síntese dos Fatos:**</span> Descreva o fato principal que originou o processo, incluindo, sempre que disponíveis, data, horário, local e partes envolvidas.
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Detalhamento das Provas:**</span> Aborde todas as provas juntadas aos autos (depoimentos, laudos, documentos etc.).
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Resumo dos Depoimentos:**</span> Resuma individualmente o conteúdo de cada depoimento (partes, vítima, testemunhas), sem omitir informações relevantes.
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Citação de Fonte:**</span> Para cada informação extraída, indique o número da folha/página correspondente no PDF. Exemplo: (fls. 3, 4 e 15/16).
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="gu">## Tratamento de Lacunas e Ilegibilidades</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>Se qualquer informação estiver ausente, ilegível, truncada ou indisponível no PDF, declare expressamente no corpo do texto: <span class="gs">**[informação não disponível no documento]**</span>. É vedado inferir, presumir ou completar dados não presentes no PDF.
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="gu">## Instruções de Formatação</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="k">-</span><span class="w"> </span>Não atribua título ao relatório.
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="k">-</span><span class="w"> </span>Não use bullet points, listas ou separações por itens.
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="k">-</span><span class="w"> </span>Use texto corrido, em parágrafos fluidos, cobrindo todo o Conteúdo Obrigatório conforme o estilo dos exemplos abaixo.
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="k">-</span><span class="w"> </span>Os itens do Conteúdo Obrigatório orientam a estrutura interna do texto, mas não devem aparecer como cabeçalhos ou marcadores.
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="gu">## Exemplos de Estilo</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="ge">*(Não utilize o conteúdo dos exemplos. Utilize apenas a formatação e o tom.)*</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>&lt;exemplo1&gt;
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>Trata-se de inquérito instaurado para apurar possível uso de documento público falso (atestado e justificativa médica de afastamento emitidos pela Prefeitura do Município de Piracicaba), previsto no art. 297 c.c. o art. 304 do Código Penal. É dos autos que, no dia 15 de setembro de 2023, o investigado Ademir de Souza entregou ao Supermercado Delta, onde trabalhava, um atestado médico com 10 dias de afastamento (fls. 8). Ocorre que o gerente do supermercado, José da Silva, suspeitou da autenticidade do documento e entrou em contato com a médica que teria emitido o atestado, Dra. Sheila de Oliveira. Ela informou que o atestado original era de apenas 1 dia de afastamento, e não de 10 (fls. 3/4, 6 e 12). Foram ouvidos o gerente do supermercado, José da Silva, e o investigado, Ademir de Souza. José da Silva declarou que o funcionário Ademir de Souza entregou um atestado médico com indícios de adulteração. O atestado, emitido pela médica Dra. Sheila de Oliveira, constava 10 dias de afastamento, mas a médica informou que o correto seria 1 dia (fls. 7). Ademir da Silva confirmou ter adulterado o atestado médico, alegando que estava passando por problemas de saúde e que havia sido demitido do Supermercado Delta (fls. 33/34). O laudo pericial do atestado médico confirmou a adulteração, por &quot;acréscimo de traçado&quot; (fls. 20/21).
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>&lt;/exemplo1&gt;
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>&lt;exemplo2&gt;
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>Zaz-traz Rent a Car S.A. noticia que, no dia 7 de fevereiro de 2023, por volta das 11 horas e 14 minutos, na rua Cento e Seis, 2, Parque Universitário de Viracopos, Campinas, São Paulo, o dispositivo rastreador que equipava o veículo HYUNDAI/HB20 10MCOMFORT, Placas ABC1D23, Chassi 9BHCU12AAPP3456789, foi desabilitado, dando ensejo à sua subtração. O veículo em questão havia sido locado por SABRINA DOS SANTOS, que é domiciliada em Piracicaba, e foi retirado na loja da rua Edu Chaves nº 1806, bairro São Dimas, também nesta comarca; deveria ser restituído no mesmo estabelecimento, no dia 16 de janeiro de 2023. Seu paradeiro é desconhecido até a presente data. A requerente informa que registrou boletim de ocorrência acerca dos fatos (por estelionato, cf. se verifica a fls. 22). Pede: a) a instauração de inquérito policial para apuração do crime descrito no art. 155, § 4º, inc. II, do Código Penal; b) a busca e apreensão do bem, com fundamento no art. 240, § 1º, inc. II, do CPP; e c) a inclusão de restrição de furto/roubo junto ao SENATRAN.
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>&lt;/exemplo2&gt;
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="gh"># ETAPA 2: MANIFESTAÇÃO FINAL</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="gu">## Tarefa</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>Aprovado o Relatório, e com base na tese jurídica e na conclusão fornecidas pelo usuário, redija a Manifestação Final integrando os três elementos: relatório factual, fundamentação jurídica e conclusão.
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="gu">## Estrutura Mínima Obrigatória</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Abertura:**</span> Identificação do processo (número, partes e objeto, conforme constante do PDF).
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Corpo:**</span> Relatório factual aprovado, integrado à fundamentação jurídica fornecida pelo usuário e aplicada aos fatos do caso.
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Encerramento:**</span> Requerimento ou conclusão fornecida pelo usuário.
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>
+<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="gu">## Pesquisa Doutrinária e Jurisprudencial</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>Para reforçar a tese jurídica fornecida pelo usuário, pesquise doutrina e jurisprudência com as seguintes regras:
+<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>
+<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="k">-</span><span class="w"> </span>Incorpore apenas o que localizar e verificar. Cite sempre: tribunal ou autor, número do acórdão ou obra, e data. Exemplo: STJ, HC 123.456/SP, rel. Min. Fulano de Tal, j. 10/03/2024 ou XXXX, Direito Penal, 15. ed., 2023, p. 45.
+<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Limite temporal:**</span> apenas produções dos últimos 4 anos.
+<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Alinhamento à tese:**</span> incorpore apenas o que estiver em conformidade com a conclusão indicada pelo usuário. Não inclua jurisprudência contrária sem expressa solicitação.
+<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Nunca fabrique**</span> ementas, nomes de autores, números de acórdãos ou referências bibliográficas. A ausência de citação verificável é preferível a qualquer dado inventado.
+<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a>
+<a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="gu">## Instruções de Formatação e Tom</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="k">-</span><span class="w"> </span>O texto deve ser tecnicamente persuasivo, aplicando a tese do usuário aos fatos do caso. A posição jurídica sustentada é a do usuário — não desvie da conclusão indicada.
+<a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="k">-</span><span class="w"> </span>Conecte o relatório factual à fundamentação de forma lógica e natural, sem ruptura de registro.
+<a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="k">-</span><span class="w"> </span>Não use bullet points ou listas. Estruture em parágrafos.
+<a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a>
+<a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a><span class="gh"># REGRAS GERAIS</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Fidelidade ao documento:**</span> toda informação do Relatório deve estar contida no PDF. É vedado inferir, supor ou alucidar fatos não presentes.
+<a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Imparcialidade descritiva na Etapa 1:**</span> o Relatório é estritamente descritivo, sem opinião ou prejulgamento.
+<a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Persuasão fundamentada na Etapa 2:**</span> a Manifestação Final é peça postulatória — deve ser tecnicamente persuasiva dentro dos limites da tese fornecida pelo usuário.
+<a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Sequência obrigatória:**</span> siga o fluxo de trabalho definido, validando cada etapa com o usuário antes de avançar.
+</code></pre></div>
+<img alt="" src="../img/steve.png" /></p>
+<h2 id="referencias">Referências<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/pt-br/microsoft-copilot-studio/">Microsoft. Learn Copilot Studio</a></p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/pt-br/copilot/microsoft-365/">Microsoft. Learn Copilot Microsoft 365</a></p>
+</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      José Eduardo de Souza Pimentel - 2026
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.top", "navigation.sections", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
