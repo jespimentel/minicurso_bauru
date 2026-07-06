@@ -51,3 +51,8 @@ mkdocs gh-deploy
 ```
 
 O comando faz o build e publica automaticamente na branch `gh-pages`.
+
+## Licença
+
+- O material didático (`docs/`, `extras/`) está sob [CC BY 4.0](LICENSE-CONTENT.md).
+- Trechos de código/scripts estão sob [MIT](LICENSE).
