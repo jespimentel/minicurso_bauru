@@ -61,7 +61,7 @@ Liste os pedidos da apelação defensiva fornecida no contexto.
 | `---` | Linha horizontal para separar seções | `---` |
 
 
-## Exemplos
+## Exemplos de prompts
 
 ### Manifestação sobre concessão de MPU
 
@@ -112,7 +112,7 @@ violência doméstica, manifesto-me favoravelmente ao pedido.
 </modelo>
 
 ```
-### Prompt para "multidocumentos" (uso com API)
+### Prompt para API com "multidocumentos"
 
 ```markdown
 <documents>
@@ -135,11 +135,11 @@ Analise o relatório anual e a análise dos concorrentes. Identifique vantagens 
 ```
 Fonte: Anthropic. Adaptado pelo autor
 
-!!! tip "Dica PRO: injetando conteúdo de documentos em prompts com uso da API"
+!!! tip "Dica PRO: injetando conteúdo de documentos com o uso de API"
     A tag `<source>` funciona como um **metadado** que identifica a origem do arquivo para a IA, enquanto o texto entre chaves `{{ANNUAL_REPORT}}` é um ***placeholder* (variável)** que um script substitui pelo conteúdo real do PDF antes de enviar o prompt final, permitindo automatizar a análise de documentos de forma organizada e reutilizável.
 
 ## Referências
 
--   [Markdown Guide](https://www.markdownguide.org/basic-syntax/)
+-  [ANTHROPIC.. Structure prompts with XML tags](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#structure-prompts-with-xml-tags/)
 
--   [Anthropic Docs. Structure prompts with XML tags](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#structure-prompts-with-xml-tags/)
+-  [MARKDOWN GUIDE](https://www.markdownguide.org/basic-syntax/)

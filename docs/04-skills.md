@@ -30,7 +30,10 @@ Além disso, a skill não carrega apenas texto: pode rodar scripts, consultar mo
 - Corpo (em Markdown): as instruções de execução. Procedimento passo a passo, regras de domínio e travas de segurança.
 - Regra prática: manter o corpo da skill enxuto (abaixo de ~500 linhas), como um índice do método que remete aos arquivos auxiliares.
 
-### Exemplo `elaborar-denuncia`
+!!!warning "Cuidado com Skills disponibilizadas por terceiros"
+    O fato de uma skill estar disponível no GitHub ou em outro repositório para download não garante que ela seja segura. A validação das permissões, a privacidade dos seus dados e a segurança da sua rede são responsabilidades suas ao utilizá-la. Como esse tipo de skill não passa pela curadoria de uma loja oficial, revise sempre o código-fonte (especialmente arquivos `.py` ou `.js`) e verifique a reputação do repositório antes da instalação, garantindo que a skill não execute comandos maliciosos no seu dispositivo.
+
+### Exemplo de skill: `elaborar-denuncia`
 
 ```markdown
 ---
@@ -373,4 +376,8 @@ Google Drive (externo, via MCP)
 
 ## Referências
 
--   [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)
+- [ANTHROPIC. Agent Skills (docs)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) e https://github.com/anthropics/skills
+
+- [ANTHROPIC. Repositório público de skills](https://github.com/anthropics/skills)
+
+- [ANTHROPIC. The Complete Guide to Building Skills for Claude](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf) 
