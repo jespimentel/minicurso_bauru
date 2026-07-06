@@ -436,28 +436,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#prompt-para-a-manutencao-da-pasta-modelos_denuncias-no-google-drive-conector-ativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt para a manutenção da pasta modelos_denuncias no Google Drive (conector ativo)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criando-uma-skill-com-apoio-do-claude-ex-elaborar-denuncia" class="md-nav__link">
+  <a href="#como-criar-uma-skill-com-apoio-do-claude" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Criando uma Skill com apoio do Claude (Ex.: elaborar-denuncia)
+        Como criar uma Skill com apoio do Claude?
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Criando uma Skill com apoio do Claude (Ex.: elaborar-denuncia)">
+    <nav class="md-nav" aria-label="Como criar uma Skill com apoio do Claude?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#roteiro" class="md-nav__link">
+  <a href="#dicas-praticas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Roteiro
+        Dicas práticas
       
     </span>
   </a>
@@ -470,10 +481,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#estrutura-da-pasta" class="md-nav__link">
+  <a href="#estrutura-da-pasta-da-skill-do-exemplo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Estrutura da pasta
+        Estrutura da pasta da skill do exemplo
       
     </span>
   </a>
@@ -617,28 +628,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#prompt-para-a-manutencao-da-pasta-modelos_denuncias-no-google-drive-conector-ativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt para a manutenção da pasta modelos_denuncias no Google Drive (conector ativo)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criando-uma-skill-com-apoio-do-claude-ex-elaborar-denuncia" class="md-nav__link">
+  <a href="#como-criar-uma-skill-com-apoio-do-claude" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Criando uma Skill com apoio do Claude (Ex.: elaborar-denuncia)
+        Como criar uma Skill com apoio do Claude?
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Criando uma Skill com apoio do Claude (Ex.: elaborar-denuncia)">
+    <nav class="md-nav" aria-label="Como criar uma Skill com apoio do Claude?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#roteiro" class="md-nav__link">
+  <a href="#dicas-praticas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Roteiro
+        Dicas práticas
       
     </span>
   </a>
@@ -651,10 +673,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#estrutura-da-pasta" class="md-nav__link">
+  <a href="#estrutura-da-pasta-da-skill-do-exemplo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Estrutura da pasta
+        Estrutura da pasta da skill do exemplo
       
     </span>
   </a>
@@ -1039,43 +1061,98 @@
 <p class="admonition-title">Resumindo...</p>
 <p>Um <code>SKILL.md</code> orquestra recursos que só carregam quando necessários. Skill é, portanto, um método complexo empacotado, que economiza a janela de contexto e pode ser reutulizado em qualquer projeto ou conversa.</p>
 </div>
-<h2 id="criando-uma-skill-com-apoio-do-claude-ex-elaborar-denuncia">Criando uma Skill com apoio do Claude (Ex.: <code>elaborar-denuncia</code>)<a class="headerlink" href="#criando-uma-skill-com-apoio-do-claude-ex-elaborar-denuncia" title="Permanent link">&para;</a></h2>
-<p>Por que fazer pelo Claude? Porque ele dispõe da <code>skill-creator</code>, uma skill nativa que é acionada quando você pede ajuda para criar ou aprimorar skills: ela enquadra o problema, rascunha o <code>SKILL.md</code>, sugere a estrutura de pastas e ajuda a empacotar. </p>
+<h3 id="prompt-para-a-manutencao-da-pasta-modelos_denuncias-no-google-drive-conector-ativo">Prompt para a manutenção da pasta <code>modelos_denuncias</code> no Google Drive (conector ativo)<a class="headerlink" href="#prompt-para-a-manutencao-da-pasta-modelos_denuncias-no-google-drive-conector-ativo" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Objetivo: gerar (ou atualizar) o <span class="sb">`indice.md`</span> que a skill <span class="sb">`elaborar-denuncia`</span> lê
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>para selecionar um modelo por SEMELHANÇA FÁTICA (narrativa dos fatos), não por rito.
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="gu">## 1. Localizar a pasta</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">-</span><span class="w"> </span>Use <span class="sb">`Google Drive:search_files`</span> para achar a pasta <span class="sb">`modelos_denuncias`</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  (mimeType de folder: application/vnd.google-apps.folder).
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">-</span><span class="w"> </span>0 pastas → pare e informe. Mais de 1 → liste as candidatas (nome + id) e peça
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  confirmação. Guarde o <span class="sb">`id`</span> da pasta confirmada.
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="gu">## 2. Listar os modelos</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="k">-</span><span class="w"> </span>Com o <span class="sb">`id`</span>, use <span class="sb">`Google Drive:search_files`</span> filtrando por <span class="sb">`&#39;&lt;FOLDER_ID&gt;&#39; in parents`</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>  e mimeType de Word (docx:
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>  application/vnd.openxmlformats-officedocument.wordprocessingml.document).
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>  (Se algum modelo estiver como Google Docs, inclua também
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>  application/vnd.google-apps.document.)
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="k">-</span><span class="w"> </span>Ignore o que não for denúncia (o próprio <span class="sb">`indice.md`</span>, temporários etc.).
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="k">-</span><span class="w"> </span>Nenhum modelo encontrado → pare e informe.
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="gu">## 3. Ler cada modelo</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="k">-</span><span class="w"> </span>Para cada arquivo, use <span class="sb">`Google Drive:read_file_content`</span> e leia o conteúdo integral.
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="k">-</span><span class="w"> </span>O resumo sai EXCLUSIVAMENTE do conteúdo do arquivo: não infira, não preencha
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>  lacunas, não invente. Campo que não constar → escreva &quot;não consta&quot;.
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="gu">## 4. Gravar o índice</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>Antes de gravar, verifique se já existe um <span class="sb">`indice.md`</span> na pasta:
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="k">-</span><span class="w"> </span>Use <span class="sb">`Google Drive:search_files`</span> por <span class="sb">`&#39;&lt;FOLDER_ID&gt;&#39; in parents`</span> e nome <span class="sb">`indice.md`</span>.
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="k">-</span><span class="w"> </span>Se JÁ existir: NÃO grave em cima (não há tool de update/delete no Drive MCP; gravar
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>  criaria um duplicado). Informe o <span class="sb">`id`</span> do índice existente e pergunte ao usuário se ele
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>  quer excluí-lo manualmente antes de regenerar. Só prossiga com a gravação após o ok.
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="k">-</span><span class="w"> </span>Se NÃO existir: prossiga.
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>Grave com <span class="sb">`Google Drive:create_file`</span>, EXATAMENTE com estes parâmetros:
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="k">-</span><span class="w"> </span><span class="sb">`parentId`</span>: &lt;id da pasta modelos_denuncias&gt;
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="k">-</span><span class="w"> </span><span class="sb">`title`</span>: indice.md
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="k">-</span><span class="w"> </span><span class="sb">`contentMimeType`</span>: text/markdown
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="k">-</span><span class="w"> </span><span class="sb">`disableConversionToGoogleType`</span>: true   ← sem isto, o Drive converte em Google Doc
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="k">-</span><span class="w"> </span><span class="sb">`textContent`</span>: &lt;conteúdo do índice em Markdown, conforme formato abaixo&gt;
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="gu">## Formato do índice (uma entrada por modelo)</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="gu">### &lt;nome exato do arquivo, como está no Drive, com extensão&gt;</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>Resumo objetivo dos FATOS típicos, em até 4 linhas, com detalhe suficiente para
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>distinguir casos semelhantes: tipo(s) penal(is), modus operandi, número de indiciados,
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>se houve flagrante/prisão e em que circunstância (ou &quot;sem prisão&quot;), e concurso de
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>crimes citando os tipos envolvidos (ou &quot;crime único&quot;). Destaque o que DIFERENCIA este
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>modelo de outros parecidos.
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>Regras do índice:
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="k">-</span><span class="w"> </span>Só fatos. NÃO inclua observações de estilo, forma ou rito (a skill infere o estilo
+<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>  lendo o modelo, e o rito ela deriva do crime real apurado — não do índice).
+<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="k">-</span><span class="w"> </span>Nome do arquivo EXATAMENTE como no Drive (a skill reabre o modelo por esse nome).
+<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="k">-</span><span class="w"> </span>Ordene as entradas por nome de arquivo (saída estável entre execuções).
+<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="k">-</span><span class="w"> </span>Não grave nenhum outro arquivo além do <span class="sb">`indice.md`</span>.
+</code></pre></div>
+<h2 id="como-criar-uma-skill-com-apoio-do-claude">Como criar uma Skill com apoio do Claude?<a class="headerlink" href="#como-criar-uma-skill-com-apoio-do-claude" title="Permanent link">&para;</a></h2>
+<p>O Claude dispõe da <code>skill-creator</code> nativa, que é acionada quando você pede ajuda para criar ou aprimorar skills: ela entende o problema, rascunha o <code>SKILL.md</code>, sugere a estrutura de pastas e ajuda a empacotar. </p>
 <blockquote>
 <p>Todo este fluxo é feito no navegador (Claude.ai). </p>
 </blockquote>
-<h3 id="roteiro">Roteiro<a class="headerlink" href="#roteiro" title="Permanent link">&para;</a></h3>
+<h3 id="dicas-praticas">Dicas práticas<a class="headerlink" href="#dicas-praticas" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Diga ao Claude "transforme este prompt/fluxo numa skill" — ele aciona a <code>skill-creator</code> e aproveita o histórico da conversa para extrair os passos, ferramentas e correções.</li>
 <li>Antes de rascunhar uma skill, reflita sobre: 1) o que a skill habilita; 2) quando dispara (frases reais); 3) qual o formato de saída; 4) se vale criar casos de teste.</li>
 <li>Forneça os insumos: os conectores adequados (ex.: Google Drive MCP, ligado pela UI de conectores), a sequência de passos (análise → Passo 0 → redação) e os formatos desejados. Peça ao Claude que faça perguntas sobre os pontos duvidosos.</li>
 <li>Deixe o Claude escrever o rascunho do <code>SKILL.md</code>. Ao revisar, atente para:<ul>
 <li>a <strong>description</strong> — é o gatilho; revise sempre;</li>
-<li>o <strong>disparo explícito</strong> — no caso de <code>elaborar-denuncia</code>, optei pela trava explícita, para que não seja acionada após a análise;</li>
+<li>o <strong>disparo explícito</strong> (no caso de <code>elaborar-denuncia</code>, optei pela trava explícita, para que não seja acionada após a análise);</li>
 <li>o <strong>disclosure progressivo</strong> — exemplos e template em <code>references/</code>, que são lidos só na hora de redigir.</li>
 </ul>
 </li>
-<li>Rode a skill em casos representativos (tráfico, furto, concurso material etc.). No navegador é um de cada vez (sem subagentes): o Claude lê o <code>SKILL.md</code> e executa a tarefa.</li>
+<li>Rode a skill em casos representativos do problema. No navegador é um de cada vez (sem subagentes): o Claude lê o <code>SKILL.md</code> e executa a tarefa.</li>
 <li>Revise os resultados e itere. A seu pedido, o Claude reescreve a skill e repete até o resultado ficar bom.</li>
 <li>Ao final, empacote a skill (<code>.skill</code>). O empacotamento funciona no navegador e serve para que a skill possa ser carregada no seu perfil e compartilhada com colegas.</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Iteração</p>
-<p>Criar skill com o Claude é um laço: rascunhar, rodar em casos reais, revisar com nosso olhar de Promotor, corrigir. Itere até o método ficar reutilizável. Depois, compartilhe com os colegas.</p>
+<p>Criar skill com o Claude é um ciclo: rascunhar, rodar em casos reais, revisar com nosso olhar de Promotor e corrigir. Itere até o método ficar bom e reutilizável. Depois, compartilhe a skill com os colegas.</p>
 </div>
-<h2 id="estrutura-da-pasta">Estrutura da pasta<a class="headerlink" href="#estrutura-da-pasta" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>elaborar-denuncia/            # sobe como .zip (ou botão &quot;salvar&quot;) em Customize &gt; Skills
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── SKILL.md                  # frontmatter (name + description/gatilho) + método
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>└── references/               # disclosure progressivo (lido sob demanda)
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    ├── template.md           # estrutura da peça — lido só ao redigir
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    └── exemplos.md           # exemplos de saída — só sem modelo do índice/colado
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="gh"># Fora da skill (não é empacotado):</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>Conector Google Drive .......... ligado na UI de conectores (sem arquivo)
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Google Drive (externo, via MCP)
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>└── modelos_denuncias/
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    ├── indice.md
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    └── *.md                   # modelos de peças
+<h2 id="estrutura-da-pasta-da-skill-do-exemplo">Estrutura da pasta da skill do exemplo<a class="headerlink" href="#estrutura-da-pasta-da-skill-do-exemplo" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>elaborar-denuncia/            # sobe como .zip (ou botão &quot;salvar&quot;) em Customize &gt; Skills
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── SKILL.md                  # frontmatter (name + description/gatilho) + método
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>└── references/               # disclosure progressivo (lido sob demanda)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    ├── template.md           # estrutura da peça — lido só ao redigir
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    └── exemplos.md           # exemplos de saída — só sem modelo do índice/colado
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="gh"># Fora da skill (não é empacotado):</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>Conector Google Drive .......... ligado na UI de conectores (sem arquivo)
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Google Drive (externo, via MCP)
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>└── modelos_denuncias/
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    ├── indice.md
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    └── *.md                   # modelos de peças
 </code></pre></div>
 <h2 id="referencias">Referências<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <ul>
