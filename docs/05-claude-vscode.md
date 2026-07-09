@@ -157,6 +157,8 @@ Google Drive (externo, via MCP)
 
 ## Referências
 
--   [Extensão no Marketplace](https://marketplace.visualstudio.com/items?itemName=Anthropic.claude-code)
+- [ANTHROPIC. Extensão no Marketplace](https://marketplace.visualstudio.com/items?itemName=Anthropic.claude-code)
 
--   [Anthropic Docs. Claude Code](https://docs.anthropic.com/en/docs/claude-code)
+- [ANTHROPIC. Claude Code Docs](https://docs.anthropic.com/en/docs/claude-code)
+
+- [OPENAI. MCP no Apps SDK](https://developers.openai.com/apps-sdk/concepts/mcp-server)

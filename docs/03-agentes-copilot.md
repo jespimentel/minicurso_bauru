@@ -202,6 +202,6 @@ Para reforçar a tese jurídica fornecida pelo usuário, pesquise doutrina e jur
 
 ## Referências
 
--   [Microsoft. Learn Copilot Studio](https://learn.microsoft.com/pt-br/microsoft-copilot-studio/)
+-   [MICROSOFT. Learn Copilot Studio](https://learn.microsoft.com/pt-br/microsoft-copilot-studio/)
 
--   [Microsoft. Learn Copilot Microsoft 365](https://learn.microsoft.com/pt-br/copilot/microsoft-365/)
+-   [OPENAI. A Practical Guide to Building Agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf)

@@ -77,7 +77,7 @@ protocolado em {{DATA_PROTOCOLO}}, considerando o prazo final em {{DATA_LIMITE}}
 
 Os trechos entre `{{ }}` são substituídos pelos valores reais antes do envio — manualmente ou por script — permitindo reaproveitar o mesmo prompt em múltiplos casos.
 
-## Exemplos
+## Exemplos de prompts
 
 Os exemplos a seguir combinam Markdown, XML e placeholders. O segundo é mais longo por tratar de uma tarefa com mais etapas e regras de formatação de saída.
 
@@ -261,11 +261,11 @@ Analise o relatório anual e a análise dos concorrentes. Identifique vantagens 
 ```
 Fonte: Anthropic. Adaptado pelo autor.
 
-!!! tip "Dica PRO: injetando conteúdo de documentos em prompts com uso da API"
+!!! tip "Dica PRO: injetando conteúdo de documentos com o uso de API"
     A tag `<source>` funciona como um **metadado** que identifica a origem do arquivo para a IA, enquanto o texto entre chaves `{{ANNUAL_REPORT}}` é um ***placeholder* (variável)** que um script substitui pelo conteúdo real do PDF antes de enviar o prompt final, permitindo automatizar a análise de documentos de forma organizada e reutilizável.
 
 ## Referências
 
-- [Markdown Guide](https://www.markdownguide.org/basic-syntax/)
+- [ANTHROPIC. Structure prompts with XML tags](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#structure-prompts-with-xml-tags/)
 
-- [Anthropic Docs. Structure prompts with XML tags](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#structure-prompts-with-xml-tags/)
+- [MARKDOWN GUIDE](https://www.markdownguide.org/basic-syntax/)

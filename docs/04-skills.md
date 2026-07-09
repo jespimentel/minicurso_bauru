@@ -30,7 +30,10 @@ Além disso, a skill não carrega apenas texto: pode rodar scripts, consultar mo
 - Corpo (em Markdown): as instruções de execução. Procedimento passo a passo, regras de domínio e travas de segurança.
 - Regra prática: manter o corpo da skill enxuto (abaixo de ~500 linhas), como um índice do método que remete aos arquivos auxiliares.
 
-### Exemplo `elaborar-denuncia`
+!!!warning "Cuidado com Skills disponibilizadas por terceiros"
+    O fato de uma skill estar disponível no GitHub ou em outro repositório para download não garante que ela seja segura. A validação das permissões, a privacidade dos seus dados e a segurança da sua rede são responsabilidades suas ao utilizá-la. Como esse tipo de skill não passa pela curadoria de uma loja oficial, revise sempre o código-fonte (especialmente arquivos `.py` ou `.js`) e verifique a reputação do repositório antes da instalação, garantindo que a skill não execute comandos maliciosos no seu dispositivo.
+
+### Exemplo de skill: `elaborar-denuncia`
 
 ```markdown
 ---
@@ -331,30 +334,88 @@ com dado extraído da análise, ancorando os fatos em `(fls. XX)`.
 !!!note "Resumindo..."
     Um `SKILL.md` orquestra recursos que só carregam quando necessários. Skill é, portanto, um método complexo empacotado, que economiza a janela de contexto e pode ser reutulizado em qualquer projeto ou conversa.
 
-## Criando uma Skill com apoio do Claude (Ex.: `elaborar-denuncia`)
+### Prompt para a manutenção da pasta `modelos_denuncias` no Google Drive (conector ativo)
 
-Por que fazer pelo Claude? Porque ele dispõe da `skill-creator`, uma skill nativa que é acionada quando você pede ajuda para criar ou aprimorar skills: ela enquadra o problema, rascunha o `SKILL.md`, sugere a estrutura de pastas e ajuda a empacotar. 
+```markdown
+Objetivo: gerar (ou atualizar) o `indice.md` que a skill `elaborar-denuncia` lê
+para selecionar um modelo por SEMELHANÇA FÁTICA (narrativa dos fatos), não por rito.
+
+## 1. Localizar a pasta
+- Use `Google Drive:search_files` para achar a pasta `modelos_denuncias`
+  (mimeType de folder: application/vnd.google-apps.folder).
+- 0 pastas → pare e informe. Mais de 1 → liste as candidatas (nome + id) e peça
+  confirmação. Guarde o `id` da pasta confirmada.
+
+## 2. Listar os modelos
+- Com o `id`, use `Google Drive:search_files` filtrando por `'<FOLDER_ID>' in parents`
+  e mimeType de Word (docx:
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document).
+  (Se algum modelo estiver como Google Docs, inclua também
+  application/vnd.google-apps.document.)
+- Ignore o que não for denúncia (o próprio `indice.md`, temporários etc.).
+- Nenhum modelo encontrado → pare e informe.
+
+## 3. Ler cada modelo
+- Para cada arquivo, use `Google Drive:read_file_content` e leia o conteúdo integral.
+- O resumo sai EXCLUSIVAMENTE do conteúdo do arquivo: não infira, não preencha
+  lacunas, não invente. Campo que não constar → escreva "não consta".
+
+## 4. Gravar o índice
+Antes de gravar, verifique se já existe um `indice.md` na pasta:
+- Use `Google Drive:search_files` por `'<FOLDER_ID>' in parents` e nome `indice.md`.
+- Se JÁ existir: NÃO grave em cima (não há tool de update/delete no Drive MCP; gravar
+  criaria um duplicado). Informe o `id` do índice existente e pergunte ao usuário se ele
+  quer excluí-lo manualmente antes de regenerar. Só prossiga com a gravação após o ok.
+- Se NÃO existir: prossiga.
+
+Grave com `Google Drive:create_file`, EXATAMENTE com estes parâmetros:
+- `parentId`: <id da pasta modelos_denuncias>
+- `title`: indice.md
+- `contentMimeType`: text/markdown
+- `disableConversionToGoogleType`: true   ← sem isto, o Drive converte em Google Doc
+- `textContent`: <conteúdo do índice em Markdown, conforme formato abaixo>
+
+## Formato do índice (uma entrada por modelo)
+
+### <nome exato do arquivo, como está no Drive, com extensão>
+Resumo objetivo dos FATOS típicos, em até 4 linhas, com detalhe suficiente para
+distinguir casos semelhantes: tipo(s) penal(is), modus operandi, número de indiciados,
+se houve flagrante/prisão e em que circunstância (ou "sem prisão"), e concurso de
+crimes citando os tipos envolvidos (ou "crime único"). Destaque o que DIFERENCIA este
+modelo de outros parecidos.
+
+Regras do índice:
+- Só fatos. NÃO inclua observações de estilo, forma ou rito (a skill infere o estilo
+  lendo o modelo, e o rito ela deriva do crime real apurado — não do índice).
+- Nome do arquivo EXATAMENTE como no Drive (a skill reabre o modelo por esse nome).
+- Ordene as entradas por nome de arquivo (saída estável entre execuções).
+- Não grave nenhum outro arquivo além do `indice.md`.
+
+```
+
+## Como criar uma Skill com apoio do Claude?
+
+O Claude dispõe da `skill-creator` nativa, que é acionada quando você pede ajuda para criar ou aprimorar skills: ela entende o problema, rascunha o `SKILL.md`, sugere a estrutura de pastas e ajuda a empacotar. 
 
 > Todo este fluxo é feito no navegador (Claude.ai). 
 
-### Roteiro
+### Dicas práticas
 
 - Diga ao Claude "transforme este prompt/fluxo numa skill" — ele aciona a `skill-creator` e aproveita o histórico da conversa para extrair os passos, ferramentas e correções.
 - Antes de rascunhar uma skill, reflita sobre: 1) o que a skill habilita; 2) quando dispara (frases reais); 3) qual o formato de saída; 4) se vale criar casos de teste.
 - Forneça os insumos: os conectores adequados (ex.: Google Drive MCP, ligado pela UI de conectores), a sequência de passos (análise → Passo 0 → redação) e os formatos desejados. Peça ao Claude que faça perguntas sobre os pontos duvidosos.
 - Deixe o Claude escrever o rascunho do `SKILL.md`. Ao revisar, atente para:
     - a **description** — é o gatilho; revise sempre;
-    - o **disparo explícito** — no caso de `elaborar-denuncia`, optei pela trava explícita, para que não seja acionada após a análise;
+    - o **disparo explícito** (no caso de `elaborar-denuncia`, optei pela trava explícita, para que não seja acionada após a análise);
     - o **disclosure progressivo** — exemplos e template em `references/`, que são lidos só na hora de redigir.
-- Rode a skill em casos representativos (tráfico, furto, concurso material etc.). No navegador é um de cada vez (sem subagentes): o Claude lê o `SKILL.md` e executa a tarefa.
+- Rode a skill em casos representativos do problema. No navegador é um de cada vez (sem subagentes): o Claude lê o `SKILL.md` e executa a tarefa.
 - Revise os resultados e itere. A seu pedido, o Claude reescreve a skill e repete até o resultado ficar bom.
 - Ao final, empacote a skill (`.skill`). O empacotamento funciona no navegador e serve para que a skill possa ser carregada no seu perfil e compartilhada com colegas.
 
-
 !!!tip "Iteração"
-    Criar skill com o Claude é um laço: rascunhar, rodar em casos reais, revisar com nosso olhar de Promotor, corrigir. Itere até o método ficar reutilizável. Depois, compartilhe com os colegas.
+    Criar skill com o Claude é um ciclo: rascunhar, rodar em casos reais, revisar com nosso olhar de Promotor e corrigir. Itere até o método ficar bom e reutilizável. Depois, compartilhe a skill com os colegas.
 
-## Estrutura da pasta
+## Estrutura da pasta da skill do exemplo
 
 ```markdown
 elaborar-denuncia/            # sobe como .zip (ou botão "salvar") em Customize > Skills
@@ -373,4 +434,8 @@ Google Drive (externo, via MCP)
 
 ## Referências
 
--   [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)
+- [ANTHROPIC. Agent Skills (docs)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)
+
+- [ANTHROPIC. Repositório público de skills](https://github.com/anthropics/skills)
+
+- [ANTHROPIC. The Complete Guide to Building Skills for Claude](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf) 

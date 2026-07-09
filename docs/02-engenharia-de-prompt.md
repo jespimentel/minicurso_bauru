@@ -417,6 +417,6 @@ ROL:
 
 ## Referências
 
--   [Anthropic. Prompt Engineering Overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
+- [GOOGLE. Prompt Engineering (Lee Boonstra)](https://www.gptaiflow.com/assets/files/2025-01-18-pdf-1-TechAI-Goolge-whitepaper_Prompt%20Engineering_v4-af36dcc7a49bb7269a58b1c9b89a8ae1.pdf)
 
--   [Learningprompting.org](https://learnprompting.org/)
+- [PIMENTEL, José Eduardo de Souza Pimentel. A IA Generativa na Promotoria (apostila)](https://github.com/jespimentel/ia_gen_na_promotoria/blob/main/apostila/IA_Gen_Promotoria_Pimentel.pdf)
