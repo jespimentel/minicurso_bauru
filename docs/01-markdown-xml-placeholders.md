@@ -3,11 +3,11 @@ title: "1. Markdown, XML e Placeholders"
 ---
 ## Por que estruturar prompts?
 
-Um bom prompt não depende apenas do que se pede à IA, mas também de como está organizado. 
+Um bom prompt não depende apenas do que se pede à IA, mas também de como está organizado.
 
 Modelos de linguagem não leem o texto como um bloco único, mas inferem relações entre as partes de um prompt para distinguir instrução, contexto e formato de saída esperado.
 
-As técnicas aqui apresentadas contribuem para melhorar as respostas em prompts complexos e com documentos anexados, aumentando a precisão das respostas das LLMs.
+As técnicas aqui apresentadas contribuem para melhorar a precisão das respostas das LLMs em prompts complexos e com documentos anexados.
 
 !!! tip "Estrutura não é estética, é semântica."
     Markdown, XML e placeholders
@@ -16,8 +16,8 @@ As técnicas aqui apresentadas contribuem para melhorar as respostas em prompts 
 ## Técnicas
 
 ### Markdown
-- Cria hierarquia que o modelo interpreta como **estrutura semântica**. Por estrutura semântica se entende a relação lógica entre as partes: ordem do usuário, dado de apoio (ex. documento) e metadados (ex. nome do arquivo).
-- Separa visualmente instrução, contexto e formato de saída (legibilidade para o humano)
+- Cria hierarquia que o modelo interpreta como **estrutura semântica**. Por estrutura semântica se entende a relação lógica entre as partes: instrução do usuário, dado de apoio (ex. documento) e metadados (ex. nome do arquivo).
+- Separa visualmente instrução, contexto e formato de saída (legibilidade para o humano).
 
 **Elementos do Markdown**
 
@@ -39,9 +39,9 @@ As técnicas aqui apresentadas contribuem para melhorar as respostas em prompts 
 
 
 ### XML
-- Delimita blocos de maneira inequívoca (`<instrucao>,</instrucao>`; `<contexto></contexto>`)
-- Evita que o modelo confunda dados com instruções
-- Mitiga a ambiguidade semântica do Markdown em prompts longos
+- Delimita blocos de maneira inequívoca (`<instrucao></instrucao>`; `<contexto></contexto>`).
+- Evita que o modelo confunda dados com instruções.
+- Mitiga a ambiguidade semântica do Markdown em prompts longos.
 
 **Exemplo:**
 
@@ -58,19 +58,32 @@ Liste os pedidos da apelação defensiva fornecida no contexto.
 </instrucao>
 
 ```
-!!!warning "Interfaces do Copilot podem bloquear < e >"
-       Em alguns contextos, as interfaces do **Copilot Studio** e do **Agente Builder** bloqueiam instruções com tags XML. A IA as leriam normalmente.
-       Se isso acontecer, estruture os prompts exclusivamente com Markdown (Ex.: # SEÇÃO).
+!!! warning "Interfaces do Copilot podem bloquear < e >"
+    Em alguns contextos, as interfaces do **Copilot Studio** e do **Agente Builder** bloqueiam instruções com tags XML. A IA as leria normalmente.
+    Se isso acontecer, estruture os prompts exclusivamente com Markdown (Ex.: # SEÇÃO).
 
-![](img/bloqueio_tags.png)
+![Exemplo de bloqueio de tags XML na interface do Copilot Studio](img/bloqueio_tags.png)
 
 ### Placeholders
-- Transformam o prompt em template reutilizável (`{{nome_do_réu}}`)
-- Facilitam a automação com scripts
+- Transformam o prompt em template reutilizável (`{{nome_do_réu}}`).
+- Facilitam a automação com scripts.
 
-## Exemplos: 
+**Exemplo:**
 
-### Manifestação sobre concessão de MPU
+```
+Elabore uma certidão de tempestividade para o recurso interposto por {{NOME_RECORRENTE}},
+protocolado em {{DATA_PROTOCOLO}}, considerando o prazo final em {{DATA_LIMITE}}.
+```
+
+Os trechos entre `{{ }}` são substituídos pelos valores reais antes do envio — manualmente ou por script — permitindo reaproveitar o mesmo prompt em múltiplos casos.
+
+## Exemplos
+
+Os exemplos a seguir combinam Markdown, XML e placeholders. O segundo é mais longo por tratar de uma tarefa com mais etapas e regras de formatação de saída.
+
+### Manifestação sobre concessão de medidas protetivas de urgência (MPU)
+
+O texto dentro de `<modelo>` é o próprio conteúdo a ser produzido (não uma instrução), por isso a citação jurisprudencial nele aparece entre aspas, em prosa corrida, e não como blockquote (`>`) — essa marcação é reservada para dar ênfase dentro das instruções do prompt.
 
 ```markdown
 <contexto>
@@ -246,13 +259,13 @@ Também não se vislumbra o comprometimento da cadeia de custódia: a droga foi 
 Analise o relatório anual e a análise dos concorrentes. Identifique vantagens estratégicas e recomende áreas de foco para o terceiro trimestre (Q3).
 
 ```
-Fonte: Anthropic. Adaptado pelo autor
+Fonte: Anthropic. Adaptado pelo autor.
 
 !!! tip "Dica PRO: injetando conteúdo de documentos em prompts com uso da API"
     A tag `<source>` funciona como um **metadado** que identifica a origem do arquivo para a IA, enquanto o texto entre chaves `{{ANNUAL_REPORT}}` é um ***placeholder* (variável)** que um script substitui pelo conteúdo real do PDF antes de enviar o prompt final, permitindo automatizar a análise de documentos de forma organizada e reutilizável.
 
 ## Referências
 
--   [Markdown Guide](https://www.markdownguide.org/basic-syntax/)
+- [Markdown Guide](https://www.markdownguide.org/basic-syntax/)
 
--   [Anthropic Docs. Structure prompts with XML tags](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#structure-prompts-with-xml-tags/)
+- [Anthropic Docs. Structure prompts with XML tags](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#structure-prompts-with-xml-tags/)
