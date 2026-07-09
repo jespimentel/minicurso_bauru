@@ -1,17 +1,49 @@
 ---
 title: "1. Markdown, XML e Placeholders"
 ---
+## Por que estruturar prompts?
 
-## Estruturação de prompts
+Um bom prompt não depende apenas do que se pede à IA, mas também de como está organizado. 
+
+Modelos de linguagem não leem o texto como um bloco único, mas inferem relações entre as partes de um prompt para distinguir instrução, contexto e formato de saída esperado.
+
+As técnicas aqui apresentadas contribuem para melhorar as respostas em prompts complexos e com documentos anexados, aumentando a precisão das respostas das LLMs.
+
+!!! tip "Estrutura não é estética, é semântica."
+    Markdown, XML e placeholders
+    delimitam as seções distintas do prompt (instrução, contexto, dado, saída) e reduzem a ambiguidade que faz o modelo errar.
+
+## Técnicas
 
 ### Markdown
-- Cria hierarquia que o modelo interpreta como **estrutura semântica** (relação lógica entre as partes: ordem do usuário, dado de apoio, como um documento e metadados, como o nome do arquivo)
+- Cria hierarquia que o modelo interpreta como **estrutura semântica**. Por estrutura semântica se entende a relação lógica entre as partes: ordem do usuário, dado de apoio (ex. documento) e metadados (ex. nome do arquivo).
 - Separa visualmente instrução, contexto e formato de saída (legibilidade para o humano)
+
+**Elementos do Markdown**
+
+| Marcação | Descrição no Prompt | Exemplo no Prompt |
+|----------|--------------------|--------------------|
+| `# Título` | Define um título principal, destacando o tema geral do prompt | `# Analisador de Inquérito Policial` |
+| `## Subtítulo` | Organiza o prompt em seções lógicas | `## Instruções` |
+| `### Sub-subtítulo` | Cria níveis adicionais de organização | `### Formato de Saída` |
+| `**Negrito**` | Destaca termos-chave para o LLM | `**Não inclua opiniões**` |
+| `*Itálico*` | Destaca palavras ou frases conforme necessidade | `*Importante:*` |
+| `***Negrito e Itálico***` | Combina os dois para máxima ênfase | `***Atente-se para a data!***` |
+| `- Item` | Lista não ordenada para enumerar instruções ou requisitos | `- Analise os fatos` |
+| `* Item` | Variação da lista não ordenada | `* Verifique a tipificação` |
+| `1. Item` | Lista ordenada quando a sequência importa | `1. Identifique o investigado` |
+| `>` | Bloco de citação para destacar instruções ou exemplos | `> Siga este formato:` |
+| ` ``` ` | Bloco de código ou texto preformatado | ` ```python  [código]``` `|
+| `[Texto](URL)` | Link para referência externa | `[Consulta SAJ](https://...)` |
+| `---` | Linha horizontal para separar seções | `---` |
+
 
 ### XML
 - Delimita blocos de maneira inequívoca (`<instrucao>,</instrucao>`; `<contexto></contexto>`)
 - Evita que o modelo confunda dados com instruções
 - Mitiga a ambiguidade semântica do Markdown em prompts longos
+
+**Exemplo:**
 
 ```xml
 
@@ -36,32 +68,7 @@ Liste os pedidos da apelação defensiva fornecida no contexto.
 - Transformam o prompt em template reutilizável (`{{nome_do_réu}}`)
 - Facilitam a automação com scripts
 
-
-!!! tip "Por que estruturar prompts?"
-    Estrutura não é estética, é semântica. Markdown, XML e placeholders
-    delimitam as seções distintas do prompt (instrução, contexto, dado, saída) e reduzem a ambiguidade que faz o modelo errar.
-
-
-## Elementos do Markdown
-
-| Marcação | Descrição no Prompt | Exemplo no Prompt |
-|----------|--------------------|--------------------|
-| `# Título` | Define um título principal, destacando o tema geral do prompt | `# Analisador de Inquérito Policial` |
-| `## Subtítulo` | Organiza o prompt em seções lógicas | `## Instruções` |
-| `### Sub-subtítulo` | Cria níveis adicionais de organização | `### Formato de Saída` |
-| `**Negrito**` | Destaca termos-chave para o LLM | `**Não inclua opiniões**` |
-| `*Itálico*` | Destaca palavras ou frases conforme necessidade | `*Importante:*` |
-| `***Negrito e Itálico***` | Combina os dois para máxima ênfase | `***Atente-se para a data!***` |
-| `- Item` | Lista não ordenada para enumerar instruções ou requisitos | `- Analise os fatos` |
-| `* Item` | Variação da lista não ordenada | `* Verifique a tipificação` |
-| `1. Item` | Lista ordenada quando a sequência importa | `1. Identifique o investigado` |
-| `>` | Bloco de citação para destacar instruções ou exemplos | `> Siga este formato:` |
-| ` ``` ` | Bloco de código ou texto preformatado | ` ```python  [código]``` `|
-| `[Texto](URL)` | Link para referência externa | `[Consulta SAJ](https://...)` |
-| `---` | Linha horizontal para separar seções | `---` |
-
-
-## Exemplos
+## Exemplos: 
 
 ### Manifestação sobre concessão de MPU
 
@@ -112,7 +119,113 @@ violência doméstica, manifesto-me favoravelmente ao pedido.
 </modelo>
 
 ```
-### Prompt para "multidocumentos" (uso com API)
+### Extrator de teses jurídicas reaproveitáveis
+
+```markdown
+<contexto>
+Você receberá o texto de uma peça processual (sentença, razões de apelação, parecer, contrarrazões etc.). Seu objetivo é extrair as teses jurídicas reaproveitáveis contidas na peça e transformá-las em unidades autônomas de conhecimento, sanitizadas de qualquer dado do caso concreto, para compor uma base de teses que será usada futuramente na elaboração de outras peças.
+</contexto>
+
+<tarefa>
+Para o texto fornecido:
+1. Identifique cada tese jurídica autônoma (argumento, fundamento ou linha de raciocínio jurídico reaproveitável).
+2. Sanitize o conteúdo de cada tese, removendo o vínculo com o caso concreto.
+3. Gere, para CADA tese, um bloco markdown independente, com cabeçalho YAML de metadados seguido do texto da tese.
+4. Não funda teses distintas em um único bloco, mesmo que tratem de temas próximos — cada raciocínio autônomo é uma unidade separada.
+</tarefa>
+
+<criterios_selecao>
+Extraia apenas teses que:
+- possuam fundamentação jurídica consistente (não meras alegações factuais);
+- sejam potencialmente aplicáveis a outros casos, independentemente dos fatos concretos;
+- contenham raciocínio jurídico estruturado (não apenas citação isolada de lei ou julgado, sem articulação argumentativa);
+- agreguem valor argumentativo real para uso futuro.
+
+Se não houver nenhuma tese reaproveitável no texto, responda apenas: "Nenhuma tese reaproveitável identificada no texto fornecido." Não produza blocos vazios.
+</criterios_selecao>
+
+<sanitizacao>
+Remova ou generalize, em cada tese:
+- nomes de pessoas (substitua por "o acusado", "a vítima", "a testemunha", "o apelante" etc., conforme o papel processual);
+- datas, locais e valores específicos do caso;
+- número do processo e referências a documentos específicos dos autos (ex.: "fls. 45", "auto de exibição de fls. 12");
+- qualquer outro detalhe factual único do caso concreto.
+
+Preserve integralmente:
+- os fundamentos jurídicos e a estrutura argumentativa;
+- citações de jurisprudência, com identificação completa (tribunal, órgão julgador, relator, número, data);
+- referências a diplomas legais;
+- o raciocínio jurídico tal como foi construído.
+</sanitizacao>
+
+<formato_saida>
+Para cada tese, produza um bloco de código markdown separado (```markdown ... ```), contendo:
+
+1. Um cabeçalho YAML com os seguintes campos:
+   - `titulo`: título curto e descritivo do tema jurídico da tese
+   - `area_direito`: ramo do direito (ex.: "Direito Processual Penal", "Direito Penal Material")
+   - `tema`: subtema mais específico (ex.: "Abordagem policial e fundada suspeita")
+   - `tags`: lista de 2 a 5 palavras-chave para busca futura
+   - `tipo_peca_origem`: tipo da peça da qual a tese foi extraída (ex.: "Contrarrazões de apelação", "Parecer")
+   - `jurisprudencia`: lista das referências jurisprudenciais citadas na tese (vazia se não houver)
+   - `legislacao`: lista dos dispositivos legais citados na tese (vazia se não houver)
+
+2. Após o `---` de fechamento do YAML, o texto sanitizado da tese, em parágrafos bem segmentados, exatamente como seria usado em uma peça (mantendo citações na íntegra).
+
+Apresente os blocos em sequência, um após o outro, sem texto de transição entre eles.
+</formato_saida>
+
+<exemplo>
+```markdown
+---
+titulo: "Fundada suspeita e abordagem policial"
+area_direito: "Direito Processual Penal"
+tema: "Abordagem policial e busca pessoal"
+tags: [abordagem policial, fundada suspeita, busca pessoal]
+tipo_peca_origem: "Contrarrazões de apelação"
+jurisprudencia: ["RHC 229514 AgR/PE - STF, rel. Min. Gilmar Mendes"]
+legislacao: []
+---
+
+Havia motivo para a abordagem, diante do comportamento adotado pelo acusado, como exposto adiante.
+
+Afinal, ele alterou sua rota diante da patrulha e trazia um volume na altura da cintura, que merecia a atenção do policiamento ostensivo.
+
+De fato, "se um agente do Estado não puder realizar abordagem em via pública a partir de comportamentos suspeitos do alvo, tais como fuga, gesticulações e demais reações típicas, já conhecidas pela ciência aplicada à atividade policial, haverá sério comprometimento do exercício da segurança pública" (Trecho de voto do relator Min. Gilmar Mendes, no RHC 229514 AgR/PE).
+```
+
+```markdown
+---
+titulo: "Cadeia de custódia. Ausência de indícios de manipulação"
+area_direito: "Direito Processual Penal"
+tema: "Cadeia de custódia da prova"
+tags: [cadeia de custódia, prova, entorpecentes, nulidade]
+tipo_peca_origem: "Contrarrazões de apelação"
+jurisprudencia: ["AgRg no HC 895.816/SP - STJ, 5ª Turma, rel. Min. Daniela Teixeira, j. 1/7/2024, DJe 3/7/2024"]
+legislacao: []
+---
+
+Também não se vislumbra o comprometimento da cadeia de custódia: a droga foi regularmente apreendida, descrita em auto de exibição, referida nos depoimentos e discriminada em laudo.
+
+É o suficiente, quando não há indício algum de que a prova foi manipulada ou adulterada, nos termos do que estabelece a jurisprudência em vigor.
+```
+</exemplo>
+
+<observacoes_importantes>
+- Use linguagem jurídica técnica e precisa.
+- Preserve na íntegra as citações jurisprudenciais e doutrinárias.
+- Não invente jurisprudência, legislação ou metadados que não constem ou não sejam inferíveis do texto original.
+- Não acrescente comentários, observações, perguntas ou texto fora dos blocos markdown especificados.
+- Não gere blocos duplicados para a mesma tese.
+</observacoes_importantes>
+
+<texto_processual>
+[INSERIR TEXTO DA PEÇA PROCESSUAL AQUI]
+</texto_processual>
+
+
+```
+### Prompt para "multidocumentos" (para uso em API)
 
 ```markdown
 <documents>

@@ -9,13 +9,12 @@ Notação: `[SE ...]` indica bloco condicional — use-o apenas se a condição 
 ```
 EXCELENTÍSSIMO SENHOR JUIZ DE DIREITO DA ____ VARA CRIMINAL DA COMARCA DE PIRACICABA-SP
 
-IP nº {{número do inquérito}}
+IP nº {{número CNJ}}
 
 [SE EPISÓDIO ÚNICO]
 Consta do incluso inquérito policial que, no dia {{data}}, {{por volta das HH horas / em horário
-indeterminado}}, {{em/na}} {{local completo}}, {{NOME(S) DO(S) INDICIADO(S) — se mais de um: "em
-unidade de desígnios e comunhão de esforços,"}}, qualificado(s) a fls. {{X}}, {{descrição objetiva
-da conduta, com remissão às provas documentais relevantes}}.
+indeterminado}}, {{em/na}} {{local completo}}, {{NOME(S) DO(S) INDICIADO(S)"}}, qualificado(s) a fls. {{X}}, 
+[se mais de um: "em concurso,]{{descrição objetiva da conduta, com remissão às provas documentais relevantes}}.
 
 [SE MÚLTIPLOS EPISÓDIOS]
 Consta do incluso inquérito policial que, no dia {{data}}, {{horário}}, {{em/na}} {{local}},
