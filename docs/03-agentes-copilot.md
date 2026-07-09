@@ -4,7 +4,7 @@ title: "3. Agentes de IA e Copilot"
 
 ## O que são Agentes de IA?
 
-Um **Agente de IA** é um sistema de software **autônomo** capaz de perceber seu ambiente (por meio de dados ou inputs), **tomar decisões** e **executar ações** para atingir **objetivos específicos**, operando com **pouca ou nenhuma intervenção humana direta**.
+Um Agente de IA é um sistema de software autônomo capaz de perceber seu ambiente (por meio de dados ou inputs), tomar decisões e executar ações para atingir objetivos específicos, operando com pouca ou nenhuma intervenção humana direta.
 
 ## "Agentes" Copilot são Agentes de IA?
 
@@ -24,7 +24,7 @@ Um **Agente de IA** é um sistema de software **autônomo** capaz de perceber se
 
 ## Agente declarativo X Agente autônomo 
 
-| Critério | Agente declarativo (Copilot) | Agentes autônomo (Claude Code, Codex, Devin etc.) |
+| Critério | Agente declarativo (Copilot) | Agente autônomo (Claude Code, Codex, Devin etc.) |
 |---|---|---|
 | **O que faz** | Gera texto no chat | Executa trabalho no computador |
 | **Acessa arquivos** | Só a base de conhecimento | Lê, cria e edita arquivos reais |
@@ -83,8 +83,8 @@ Base de conhecimento por recuperação (RAG): o agente busca trechos relevantes 
 - **No prompt:** o que se aplica *sempre* (regras, template, travas).
 - **No conhecimento:** referência estável, consultada conforme o caso (ex.: catálogo de modelos, manual de regras).
 
-!!!tip "A recuperação é sempre probabilística" 
-      O trecho certo pode não vir. Por iss, travas antialucinação ("base exclusiva no PDF", "NÃO CONSTA NO PDF", proibição de inferência) e template ficam **no prompt**, nunca só no conhecimento. Ao usar modelos como conhecimento, marque sempre "dados fictícios, não incorporar" *dentro do próprio arquivo*, para evitar com que o agente use os nomes/valores neles contidos.
+!!! tip "A recuperação é sempre probabilística" 
+      O trecho certo pode não vir. Por isso, travas antialucinação ("base exclusiva no PDF", "NÃO CONSTA NO PDF", proibição de inferência) e template ficam **no prompt**, nunca só no conhecimento. Ao usar modelos como conhecimento, marque sempre "dados fictícios, não incorporar" *dentro do próprio arquivo*, para evitar que o agente use os nomes/valores neles contidos.
 
 ## Prática
 
@@ -113,7 +113,7 @@ Base de conhecimento por recuperação (RAG): o agente busca trechos relevantes 
 - Entre no **Agente Builder**
 - Dê um nome ao seu agente (Mike, Brian etc.)
 - Faça uma breve descrição de seu uso
-- Edite as intruções abaixo, ajustando-as a seu gosto, e cole no campo apropriado
+- Edite as instruções abaixo, ajustando-as a seu gosto, e cole no campo apropriado
 - Habilite a pesquisa em "todos os sites"
 - Se preferir, use e compartilhe com os colegas o [Steve](https://m365.cloud.microsoft/chat/?titleId=T_e243034b-2fbf-3526-3a9a-7d87d9561a43&source=embedded-builder) original e versionado (é preciso estar logado na conta corporativa)
 

@@ -4,9 +4,7 @@ title: "5. Claude no VS Code"
 
 ## Visão geral
 
-A extensão oficial coloca o Claude Code dentro do VS Code, sem precisar usar o terminal. Ela aparece num painel lateral e mostra, em tempo real, as mudanças que o Claude propõe: cada alteração vem lado a lado (o texto atual e o novo), e você decide item a item se aceita, recusa ou pede um ajuste. Há dois modos de trabalho. No modo normal, o Claude pede sua confirmação a cada mudança. No modo de planejamento, ele primeiro apresenta um plano completo, que você lê e comenta antes de autorizá-lo a começar.
-
-Na prática, o Claude atua sobre os arquivos do seu projeto: lê, edita, cria pequenos programas e executa tarefas por conta própria, sempre sob seu controle. Também pode se conectar a fontes externas (como o seu Google Drive) para buscar informação enquanto trabalha. É o ambiente indicado para quem quer construir e organizar ferramentas com mais controle
+A extensão oficial coloca o Claude Code dentro do VS Code, sem precisar usar o terminal. Ela aparece num painel lateral e mostra, em tempo real, as mudanças que o Claude propõe: cada alteração vem lado a lado (o texto atual e o novo), e você decide item a item se aceita, recusa ou pede um ajuste. Há dois modos de trabalho. No modo normal, o Claude pede sua confirmação a cada mudança. No modo de planejamento, ele primeiro apresenta um plano completo, que você lê e comenta antes de autorizá-lo a começar. Na prática, o Claude atua sobre os arquivos do seu projeto: lê, edita, cria pequenos programas e executa tarefas por conta própria, sempre sob seu controle. Também pode se conectar a fontes externas (como o seu Google Drive) para buscar informação enquanto trabalha. É o ambiente indicado para quem quer construir e organizar ferramentas com mais controle
 
 ## Claude.ai X Cowork X VS Code (com extensão do Claude)
 
@@ -110,7 +108,7 @@ Na prática, o Claude atua sobre os arquivos do seu projeto: lê, edita, cria pe
 
 ## Exemplo didático de um repositório no GitHub (para versionamento)
 
-Acesse o repositório [**denunciador-claude**](https://github.com/jespimentel/denunciador_claude) no GitHub (criado somente para fins didáticos)
+Acesse o repositório [**denunciador-claude**](https://github.com/jespimentel/denunciador_claude) no GitHub (criado somente para fins didáticos - não foi testado em produção)
 
 ![](img/repositorio_skill.png)
 

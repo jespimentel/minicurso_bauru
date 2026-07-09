@@ -3,11 +3,7 @@ title: "1. Markdown, XML e Placeholders"
 ---
 ## Por que estruturar prompts?
 
-Um bom prompt não depende apenas do que se pede à IA, mas também de como está organizado.
-
-Modelos de linguagem não leem o texto como um bloco único, mas inferem relações entre as partes de um prompt para distinguir instrução, contexto e formato de saída esperado.
-
-As técnicas aqui apresentadas contribuem para melhorar a precisão das respostas das LLMs em prompts complexos e com documentos anexados.
+Um bom prompt não depende apenas do que se pede à IA, mas também de como está organizado. Modelos de linguagem não leem o texto como um bloco único, mas inferem relações entre as partes de um prompt para distinguir instrução, contexto e formato de saída esperado. As técnicas aqui apresentadas contribuem para melhorar a precisão das respostas das LLMs em prompts complexos e com documentos anexados.
 
 !!! tip "Estrutura não é estética, é semântica."
     Markdown, XML e placeholders
@@ -33,7 +29,7 @@ As técnicas aqui apresentadas contribuem para melhorar a precisão das resposta
 | `* Item` | Variação da lista não ordenada | `* Verifique a tipificação` |
 | `1. Item` | Lista ordenada quando a sequência importa | `1. Identifique o investigado` |
 | `>` | Bloco de citação para destacar instruções ou exemplos | `> Siga este formato:` |
-| ` ``` ` | Bloco de código ou texto preformatado | ` ```python  [código]``` `|
+| ` ``` ` | Bloco de código ou texto preformatado | ` ```python [código]``` `|
 | `[Texto](URL)` | Link para referência externa | `[Consulta SAJ](https://...)` |
 | `---` | Linha horizontal para separar seções | `---` |
 
@@ -125,7 +121,7 @@ De acordo com as declarações colhidas, {{FATOS}}.
 De fato, os elementos coligidos aos autos sugerem que a ofendida necessita
 de proteção em face do investigado {{INVESTIGADO}}.
 
-O depoimento é consistente e verossímil e, como se sabe, no âmbito da violência doméstica, a palavra da mulher possui especial valor relevância, mormente para a concessão das medidas pleiteadas. "Por certo, os fatos precisam de maiores esclarecimentos, mas dada a natureza cautelar das medidas protetivas, a palavra da vítima é suficiente para a imposição e manutenção delas, para impedir que novos eventos semelhantes aconteçam. Até porque não é possível, na cognição permitida no âmbito do agravo de instrumento, retirar a credibilidade dos relatos da ofendida, matéria que deve ser reservada para eventual ação penal que vier a ser instaurada (TJSP, Ag. Inst. nº 2047751-80.2022.8.26.0000, 11ª. Câmara Criminal, Rel. Xavier de Souza, j. 13/04/2022)".
+O depoimento é consistente e verossímil e, como se sabe, no âmbito da violência doméstica, a palavra da mulher possui especial relevância, mormente para a concessão das medidas pleiteadas. "Por certo, os fatos precisam de maiores esclarecimentos, mas dada a natureza cautelar das medidas protetivas, a palavra da vítima é suficiente para a imposição e manutenção delas, para impedir que novos eventos semelhantes aconteçam. Até porque não é possível, na cognição permitida no âmbito do agravo de instrumento, retirar a credibilidade dos relatos da ofendida, matéria que deve ser reservada para eventual ação penal que vier a ser instaurada (TJSP, Ag. Inst. nº 2047751-80.2022.8.26.0000, 11ª. Câmara Criminal, Rel. Xavier de Souza, j. 13/04/2022)".
 
 Assim, presentes os requisitos legais e as circunstâncias delineadoras de
 violência doméstica, manifesto-me favoravelmente ao pedido.
@@ -189,7 +185,6 @@ Apresente os blocos em sequência, um após o outro, sem texto de transição en
 </formato_saida>
 
 <exemplo>
-```markdown
 ---
 titulo: "Fundada suspeita e abordagem policial"
 area_direito: "Direito Processual Penal"
@@ -205,9 +200,7 @@ Havia motivo para a abordagem, diante do comportamento adotado pelo acusado, com
 Afinal, ele alterou sua rota diante da patrulha e trazia um volume na altura da cintura, que merecia a atenção do policiamento ostensivo.
 
 De fato, "se um agente do Estado não puder realizar abordagem em via pública a partir de comportamentos suspeitos do alvo, tais como fuga, gesticulações e demais reações típicas, já conhecidas pela ciência aplicada à atividade policial, haverá sério comprometimento do exercício da segurança pública" (Trecho de voto do relator Min. Gilmar Mendes, no RHC 229514 AgR/PE).
-```
 
-```markdown
 ---
 titulo: "Cadeia de custódia. Ausência de indícios de manipulação"
 area_direito: "Direito Processual Penal"
@@ -221,7 +214,7 @@ legislacao: []
 Também não se vislumbra o comprometimento da cadeia de custódia: a droga foi regularmente apreendida, descrita em auto de exibição, referida nos depoimentos e discriminada em laudo.
 
 É o suficiente, quando não há indício algum de que a prova foi manipulada ou adulterada, nos termos do que estabelece a jurisprudência em vigor.
-```
+
 </exemplo>
 
 <observacoes_importantes>
@@ -266,6 +259,6 @@ Fonte: Anthropic. Adaptado pelo autor.
 
 ## Referências
 
-- [ANTHROPIC. Structure prompts with XML tags](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#structure-prompts-with-xml-tags/)
+- [ANTHROPIC. Structure prompts with XML tags](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#structure-prompts-with-xml-tags)
 
 - [MARKDOWN GUIDE](https://www.markdownguide.org/basic-syntax/)

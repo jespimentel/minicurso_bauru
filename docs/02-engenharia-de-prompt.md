@@ -1,6 +1,9 @@
 ---
 title: "2. Engenharia de Prompt"
 ---
+## O que é Engenharia de Prompt?
+
+Engenharia de prompt é o conjunto de práticas para formular instruções que aumentam a precisão e a previsibilidade das respostas de uma LLM. Um prompt eficaz combina elementos estruturais (papel, restrições, exemplos, insumo factual, instrução e formato de saída) com a técnica de prompting adequada à tarefa: zero-shot para pedidos simples, few-shot quando o formato precisa seguir um padrão rígido (como uma denúncia) e chain-of-thought quando o raciocínio envolve múltiplos critérios ou cálculos, como prescrição e reincidência.
 
 ## Elementos estruturais de um bom prompt
 

@@ -4,13 +4,8 @@ title: "4. Skills"
 
 ## O que é Skill?
 
-Skill é um procedimento salvo em pasta, composto por instruções e, opcionalmente, scripts e modelos, que é acionado quando um pedido corresponde a seu gatilho.
-
-Nesse momento ele se ativa sozinho, executa o roteiro, preenchendo gradativamente a janela de contexto e entrega o resultado. Funciona em qualquer conversa. 
-
-O que a distingue é a divisão de trabalho: a skill fixa o *como se faz* e deixa o *sobre o quê* variar, ou seja, uma mesma receita é aplicada a casos diferentes. Nesse aspecto difere dos GPTs, Gems, Projetos e Agentes do Copilot, que são criados com conteúdo fixo. 
-
-Além disso, a skill não carrega apenas texto: pode rodar scripts, consultar modelos e se combinar com outras skills. Pode ainda acessar dados externos por meio de conectores MCP (declarados fora da skill), como buscar peças no `Google Drive`. 
+Skill é um procedimento salvo em pasta, composto por instruções e, opcionalmente, scripts e modelos, que é acionado quando um pedido corresponde a seu gatilho. 
+Nesse momento ele se ativa sozinho, executa o roteiro, preenchendo gradativamente a janela de contexto e entrega o resultado. Funciona em qualquer conversa. O que a distingue é a divisão de trabalho: a skill fixa o *como se faz* e deixa o *sobre o quê* variar, ou seja, uma mesma receita é aplicada a casos diferentes. Nesse aspecto difere dos GPTs, Gems, Projetos e Agentes do Copilot, que são criados com conteúdo fixo. Além disso, a skill não carrega apenas texto: pode rodar scripts, consultar modelos e se combinar com outras skills. Pode ainda acessar dados externos por meio de conectores MCP (declarados fora da skill), como buscar peças no `Google Drive`. 
 
 ## Prompts x Gems/GPTs x Skills
 
@@ -30,7 +25,7 @@ Além disso, a skill não carrega apenas texto: pode rodar scripts, consultar mo
 - Corpo (em Markdown): as instruções de execução. Procedimento passo a passo, regras de domínio e travas de segurança.
 - Regra prática: manter o corpo da skill enxuto (abaixo de ~500 linhas), como um índice do método que remete aos arquivos auxiliares.
 
-!!!warning "Cuidado com Skills disponibilizadas por terceiros"
+!!! warning "Cuidado com Skills disponibilizadas por terceiros"
     O fato de uma skill estar disponível no GitHub ou em outro repositório para download não garante que ela seja segura. A validação das permissões, a privacidade dos seus dados e a segurança da sua rede são responsabilidades suas ao utilizá-la. Como esse tipo de skill não passa pela curadoria de uma loja oficial, revise sempre o código-fonte (especialmente arquivos `.py` ou `.js`) e verifique a reputação do repositório antes da instalação, garantindo que a skill não execute comandos maliciosos no seu dispositivo.
 
 ### Exemplo de skill: `elaborar-denuncia`
@@ -331,8 +326,8 @@ com dado extraído da análise, ancorando os fatos em `(fls. XX)`.
     - na `description`: frases reais ("elabore a denúncia", "capitule e ofereça denúncia") + um exemplo negativo ("NÃO acione após a análise") tornam o gatilho preciso;
     - em `references/exemplos.md`: os casos (tráfico, furto, concurso) servem de gabarito de saída (estrutura, tom, economia argumentativa), lidos só na hora de redigir.
 
-!!!note "Resumindo..."
-    Um `SKILL.md` orquestra recursos que só carregam quando necessários. Skill é, portanto, um método complexo empacotado, que economiza a janela de contexto e pode ser reutulizado em qualquer projeto ou conversa.
+!!! note "Resumindo..."
+    Um `SKILL.md` orquestra recursos que só carregam quando necessários. Skill é, portanto, um método complexo empacotado, que economiza a janela de contexto e pode ser reutilizado em qualquer projeto ou conversa.
 
 ### Prompt para a manutenção da pasta `modelos_denuncias` no Google Drive (conector ativo)
 
@@ -412,7 +407,7 @@ O Claude dispõe da `skill-creator` nativa, que é acionada quando você pede aj
 - Revise os resultados e itere. A seu pedido, o Claude reescreve a skill e repete até o resultado ficar bom.
 - Ao final, empacote a skill (`.skill`). O empacotamento funciona no navegador e serve para que a skill possa ser carregada no seu perfil e compartilhada com colegas.
 
-!!!tip "Iteração"
+!!! tip "Iteração"
     Criar skill com o Claude é um ciclo: rascunhar, rodar em casos reais, revisar com nosso olhar de Promotor e corrigir. Itere até o método ficar bom e reutilizável. Depois, compartilhe a skill com os colegas.
 
 ## Estrutura da pasta da skill do exemplo
