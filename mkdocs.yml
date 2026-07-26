@@ -12,6 +12,7 @@ theme:
   features:
     - navigation.top
     - navigation.sections
+    - navigation.footer
     - content.code.copy
 
 markdown_extensions:

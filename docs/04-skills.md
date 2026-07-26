@@ -5,7 +5,7 @@ title: "4. Skills"
 ## O que é Skill?
 
 Skill é um procedimento salvo em pasta, composto por instruções e, opcionalmente, scripts e modelos, que é acionado quando um pedido corresponde a seu gatilho. 
-Nesse momento ele se ativa sozinho, executa o roteiro, preenchendo gradativamente a janela de contexto e entrega o resultado. Funciona em qualquer conversa. O que a distingue é a divisão de trabalho: a skill fixa o *como se faz* e deixa o *sobre o quê* variar, ou seja, uma mesma receita é aplicada a casos diferentes. Nesse aspecto difere dos GPTs, Gems, Projetos e Agentes do Copilot, que são criados com conteúdo fixo. Além disso, a skill não carrega apenas texto: pode rodar scripts, consultar modelos e se combinar com outras skills. Pode ainda acessar dados externos por meio de conectores MCP (declarados fora da skill), como buscar peças no `Google Drive`. 
+Nesse momento ele se ativa sozinho, executa o roteiro, preenchendo gradativamente a janela de contexto e entrega o resultado. Funciona em qualquer conversa. O que a distingue é a divisão de trabalho: a skill fixa o *como se faz* e deixa o *sobre o quê* variar, ou seja, uma mesma receita é aplicada a casos diferentes. Nesse aspecto difere dos GPTs, Gems, Projetos e Agentes do Copilot, que são criados com conteúdo fixo. Além disso, a skill não carrega apenas texto: pode rodar scripts, consultar modelos e se combinar com outras skills. Pode ainda acessar dados externos por meio de conectores MCP (declarados fora da skill), como buscar peças no Google Drive. 
 
 ## Prompts x Gems/GPTs x Skills
 

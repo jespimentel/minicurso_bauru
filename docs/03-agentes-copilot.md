@@ -83,6 +83,9 @@ Base de conhecimento por recuperação (RAG): o agente busca trechos relevantes 
 - **No prompt:** o que se aplica *sempre* (regras, template, travas).
 - **No conhecimento:** referência estável, consultada conforme o caso (ex.: catálogo de modelos, manual de regras).
 
+![Configuração de Conhecimento no Agent Builder](img/copilot_premium_conhecimento.png)
+*Configuração da função "Conhecimento" no Agent Builder, com as fontes restritas a uma pasta específica do SharePoint ("denuncias"). Fonte: O autor. Julho de 2026.*
+
 !!! tip "A recuperação é sempre probabilística" 
       O trecho certo pode não vir. Por isso, travas antialucinação ("base exclusiva no PDF", "NÃO CONSTA NO PDF", proibição de inferência) e template ficam **no prompt**, nunca só no conhecimento. Ao usar modelos como conhecimento, marque sempre "dados fictícios, não incorporar" *dentro do próprio arquivo*, para evitar que o agente use os nomes/valores neles contidos.
 
@@ -113,7 +116,7 @@ Base de conhecimento por recuperação (RAG): o agente busca trechos relevantes 
 
 ### Exemplo: criação do "Steve, Analista Jurídico Jr."
 
-- Entre no **Agente Builder**
+- Entre no **Agent Builder**
 - Dê um nome ao seu agente (Mike, Brian etc.)
 - Faça uma breve descrição de seu uso
 - Edite as instruções abaixo, ajustando-as a seu gosto, e cole no campo apropriado

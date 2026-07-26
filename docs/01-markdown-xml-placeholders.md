@@ -55,7 +55,7 @@ Liste os pedidos contidos na apelação defensiva fornecida no contexto.
 
 ```
 !!! warning "Interfaces do Copilot podem bloquear < e >"
-    Em alguns contextos, as interfaces do **Copilot Studio** e do **Agente Builder** bloqueiam instruções com tags XML. A IA as leria normalmente.
+    Em alguns contextos, as interfaces do **Copilot Studio** e do **Agent Builder** bloqueiam instruções com tags XML. A IA as leria normalmente.
     Se isso acontecer, estruture os prompts exclusivamente com Markdown (Ex.: # SEÇÃO).
 
 ![Exemplo de bloqueio de tags XML na interface do Copilot Studio](img/bloqueio_tags.png)

@@ -58,7 +58,7 @@ A extensão oficial coloca o Claude Code dentro do VS Code, sem precisar usar o 
       <td><strong>Criação e otimização de skill</strong></td>
       <td>Via skill-creator com ciclo manual (rascunhar, rodar, revisar)</td>
       <td>Usa skills e plugins existentes; não há ciclo de otimização</td>
-      <td>Via skill-creator com otimização automática de gatilhos e testes</td>
+      <td>Via skill-creator, com plugin opcional que automatiza a geração e execução de casos de teste e propõe ajustes de gatilho (revisão final manual)</td>
     </tr>
     <tr>
       <td><strong>Compartilhamento</strong></td>
@@ -96,9 +96,9 @@ A extensão oficial coloca o Claude Code dentro do VS Code, sem precisar usar o 
 
 *   **Utilizando o Skill Creator:**
     *   No painel do Claude, peça para criar uma automação ou rotina usando o comando de criação.
-    *   O assistente criará automaticamente um arquivo de skill dentro do diretório oculto `.claude/skills/`.
-*   **Otimização e Testes Automáticos:**
-    *   O Claude gerencia o ciclo completo localmente: ele rascunha o código em Python, cria gatilhos automáticos e roda subagentes no seu terminal para validar se tudo funciona.
+    *   O assistente criará automaticamente uma pasta de skill (com o `SKILL.md` e, se necessário, arquivos de apoio) dentro do diretório oculto `.claude/skills/`.
+*   **Testes com apoio de subagentes:**
+    *   Com o plugin opcional `skill-creator`, o Claude gera casos de teste (frases que devem ou não acionar a skill), roda-os localmente via subagentes no seu terminal e propõe ajustes na `description`. A revisão e a decisão final sobre o que muda continuam suas.
 *   **Gerenciamento de Ferramentas (MCP):**
     *   Para conectar ferramentas externas (como o Google Drive), configure o arquivo `.mcp.json` na raiz do projeto ou utilize o terminal com o comando `claude mcp add`.
 *   **Versionamento e Compartilhamento:**
