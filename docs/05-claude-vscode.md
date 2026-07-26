@@ -104,13 +104,13 @@ A extensão oficial coloca o Claude Code dentro do VS Code, sem precisar usar o 
 *   **Versionamento e Compartilhamento:**
     *   Como todas as suas skills e pipelines ficam salvos em arquivos locais no seu filesystem, basta usar o **Git** para commitar, versionar e compartilhar as automações com o restante da sua equipe.
 
-![](img/vscode.png)
+![VS Code](img/vscode.png)
 
 ## Exemplo didático de um repositório no GitHub (para versionamento)
 
 Acesse o repositório [**denunciador-claude**](https://github.com/jespimentel/denunciador_claude) no GitHub (criado somente para fins didáticos - não foi testado em produção)
 
-![](img/repositorio_skill.png)
+![Repositório no GitHub](img/repositorio_skill.png)
 
 ## Estrutura de um projeto com MCP no VS Code
 
@@ -132,6 +132,7 @@ Google Drive (externo, via MCP)
     ├── indice.md
     └── *.md                          # modelos de peças
 ```
+
 - Exemplo do arquivo .mcp.json (declara a existência de um servidor MCP)
 
 ```json

@@ -313,7 +313,7 @@ com dado extraído da análise, ancorando os fatos em `(fls. XX)`.
 
 ```
 
-![](img/carregamento_skill.png)
+![Carregamento da Skill](img/carregamento_skill.png)
 
 ### Recursos e o disclosure progressivo
 
@@ -426,6 +426,9 @@ Google Drive (externo, via MCP)
     ├── indice.md
     └── *.md                   # modelos de peças
 ```
+
+!!! note "Editando Skills" 
+    Peça para o Claude apontar, na conversa, qual trecho do SKILL.md (ou documento de referência) foi responsável por um problema detectado na saída. Aí você edita, ao invés de tentar adivinhar. A Skill `skill-creator` pode comparar performances da skill original com a da skill editada e contribuir para a otimização da tarefa.
 
 ## Referências
 

@@ -86,6 +86,9 @@ Base de conhecimento por recuperação (RAG): o agente busca trechos relevantes 
 !!! tip "A recuperação é sempre probabilística" 
       O trecho certo pode não vir. Por isso, travas antialucinação ("base exclusiva no PDF", "NÃO CONSTA NO PDF", proibição de inferência) e template ficam **no prompt**, nunca só no conhecimento. Ao usar modelos como conhecimento, marque sempre "dados fictícios, não incorporar" *dentro do próprio arquivo*, para evitar que o agente use os nomes/valores neles contidos.
 
+![Exemplo de Ancoragem](img/exemplo_ancoragem.png)
+*Neste exemplo, sem pedido explícito no prompt, o Copilot Premium identificou uma peça processual relacionada a um caso análogo, elaborada por outro colega integrante da mesma Promotoria de Justiça, e a indicou como sugestão para a resolução do procedimento em análise. Fonte: O autor. Julho de 2026.*
+
 ## Prática
 
 ### Dicas
@@ -106,7 +109,7 @@ Base de conhecimento por recuperação (RAG): o agente busca trechos relevantes 
 
 - Trate a resposta como minuta, nunca como peça pronta. Sempre revise capitulação, concurso e pena. O agente erra.
 
-![](img/agentes_especializados.png)
+![Agentes especializados](img/agentes_especializados.png)
 
 ### Exemplo: criação do "Steve, Analista Jurídico Jr."
 
@@ -198,10 +201,12 @@ Para reforçar a tese jurídica fornecida pelo usuário, pesquise doutrina e jur
 - **Sequência obrigatória:** siga o fluxo de trabalho definido, validando cada etapa com o usuário antes de avançar.
 
 ```
-![](img/steve.png)
+![Agente Steve no Copilot](img/steve.png)
 
 ## Referências
 
 -   [MICROSOFT. Learn Copilot Studio](https://learn.microsoft.com/pt-br/microsoft-copilot-studio/)
 
 -   [OPENAI. A Practical Guide to Building Agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf)
+
+-   [TECHCOMMUNITY MICROSOFT. A closer look at Work IQ](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/a-closer-look-at-work-iq/4499789)

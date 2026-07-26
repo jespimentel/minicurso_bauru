@@ -4,7 +4,9 @@ author: José Eduardo de Souza Pimentel
 date: 2026
 ---
 
-A IA generativa pode auxiliar na execução de tarefas da Promotoria de Justiça desde que usada com as técnicas e ferramentas adequadas. Este minicurso aborda esse tema com exemplos práticos do nosso dia a dia.
+# Visão geral
+
+A IA generativa pode servir à execução de tarefas da Promotoria de Justiça, especialmente quando usada com as técnicas e ferramentas adequadas. Este minicurso aborda o tema com exemplos práticos do nosso dia a dia.
 
 **José Eduardo de Souza Pimentel**
 
@@ -20,4 +22,4 @@ A IA generativa pode auxiliar na execução de tarefas da Promotoria de Justiça
 
 -   Criar e versionar **Skills** para as atividades recorrentes.
 
--   Conhecer o **Claude no VS Code** como ferramenta de leitura e acesso a arquivos, geração de scripts e execução de aplicativos e automações para a Promotoria de Justiça.
+-   Conhecer o **Claude no VS Code** como ferramenta de leitura e acesso a arquivos, geração de scripts, execução de aplicativos e automações para a Promotoria de Justiça.

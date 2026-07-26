@@ -3,7 +3,7 @@ title: "1. Markdown, XML e Placeholders"
 ---
 ## Por que estruturar prompts?
 
-Um bom prompt não depende apenas do que se pede à IA, mas também de como está organizado. Modelos de linguagem não leem o texto como um bloco único, mas inferem relações entre as partes de um prompt para distinguir instrução, contexto e formato de saída esperado. As técnicas aqui apresentadas contribuem para melhorar a precisão das respostas das LLMs em prompts complexos e com documentos anexados.
+Um bom prompt não se limita ao que se pede à IA, mas também à forma como está organizado. Modelos de linguagem não leem o texto como um bloco único, mas inferem relações entre as partes de um prompt para distinguir instrução, contexto e formato de saída esperado. As técnicas aqui apresentadas contribuem para melhorar as respostas das LLMs em prompts complexos e com documentos anexados.
 
 !!! tip "Estrutura não é estética, é semântica."
     Markdown, XML e placeholders
@@ -44,13 +44,13 @@ Um bom prompt não depende apenas do que se pede à IA, mas também de como est�
 ```xml
 
 <contexto>
-Réu preso em flagrante por tráfico. 500g de cocaína, fls. 12.
+Réu preso em flagrante por tráfico de drogas com 500g de cocaína, conforme fls. 12.
 Condenado em 1ª instância; defesa apelou (fls. 123).
-Razões da apelação (fls. 210):
+Razões da apelação a fls. 210/215, com o seguinte conteúdo:
 "Pela r. Sentença de fls. 123, o apelante FULANO DE TAL foi condenado ..."
 </contexto>
 <instrucao>
-Liste os pedidos da apelação defensiva fornecida no contexto.
+Liste os pedidos contidos na apelação defensiva fornecida no contexto.
 </instrucao>
 
 ```
@@ -71,21 +71,21 @@ Elabore uma certidão de tempestividade para o recurso interposto por {{NOME_REC
 protocolado em {{DATA_PROTOCOLO}}, considerando o prazo final em {{DATA_LIMITE}}.
 ```
 
-Os trechos entre `{{ }}` são substituídos pelos valores reais antes do envio — manualmente ou por script — permitindo reaproveitar o mesmo prompt em múltiplos casos.
+Os trechos entre `{{ }}` são substituídos pelos valores reais antes do envio, manualmente ou por script, permitindo reaproveitar o mesmo prompt em múltiplos casos.
 
 ## Exemplos de prompts
 
-Os exemplos a seguir combinam Markdown, XML e placeholders. O segundo é mais longo por tratar de uma tarefa com mais etapas e regras de formatação de saída.
+Os exemplos a seguir combinam Markdown, XML e placeholders.
 
 ### Manifestação sobre concessão de medidas protetivas de urgência (MPU)
 
-O texto dentro de `<modelo>` é o próprio conteúdo a ser produzido (não uma instrução), por isso a citação jurisprudencial nele aparece entre aspas, em prosa corrida, e não como blockquote (`>`) — essa marcação é reservada para dar ênfase dentro das instruções do prompt.
+O texto dentro de `<modelo>` é o próprio conteúdo a ser produzido (não uma instrução); por isso a citação jurisprudencial nele aparece entre aspas, em prosa corrida, e não como blockquote (`>`), normalmente usada para dar ênfase dentro das instruções do prompt.
 
 ```markdown
 <contexto>
 Você é um Promotor de Justiça. Sua tarefa é redigir uma manifestação
 favorável ao pedido de medidas protetivas de urgência, com base no PDF
-anexado e no modelo abaixo.
+anexado e no modelo de saída abaixo.
 </contexto>
 
 <tarefas>
@@ -252,7 +252,7 @@ Também não se vislumbra o comprometimento da cadeia de custódia: a droga foi 
 Analise o relatório anual e a análise dos concorrentes. Identifique vantagens estratégicas e recomende áreas de foco para o terceiro trimestre (Q3).
 
 ```
-Fonte: Anthropic. Adaptado pelo autor.
+*Fonte: Anthropic. Adaptado pelo autor.*
 
 !!! tip "Dica PRO: injetando conteúdo de documentos com o uso de API"
     A tag `<source>` funciona como um **metadado** que identifica a origem do arquivo para a IA, enquanto o texto entre chaves `{{ANNUAL_REPORT}}` é um ***placeholder* (variável)** que um script substitui pelo conteúdo real do PDF antes de enviar o prompt final, permitindo automatizar a análise de documentos de forma organizada e reutilizável.
