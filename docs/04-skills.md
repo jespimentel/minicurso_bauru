@@ -434,6 +434,8 @@ Google Drive (externo, via MCP)
 
 - [ANTHROPIC. Agent Skills (docs)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)
 
+- [ANTHROPIC. Claude Suport. Como criar habilidades personalizadas](https://support.claude.com/pt/articles/12512198-como-criar-habilidades-personalizadas)
+
 - [ANTHROPIC. Repositório público de skills](https://github.com/anthropics/skills)
 
 - [ANTHROPIC. The Complete Guide to Building Skills for Claude](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf) 

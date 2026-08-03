@@ -172,7 +172,7 @@ Para cada tese, produza um bloco de código markdown separado (```markdown ... `
 
 1. Um cabeçalho YAML com os seguintes campos:
    - `titulo`: título curto e descritivo do tema jurídico da tese
-   - `area_direito`: ramo do direito (ex.: "Direito Processual Penal", "Direito Penal Material")
+   - `area_direito`: ramo do direito (ex.: "Direito Processual Penal", "Direito Penal")
    - `tema`: subtema mais específico (ex.: "Abordagem policial e fundada suspeita")
    - `tags`: lista de 2 a 5 palavras-chave para busca futura
    - `tipo_peca_origem`: tipo da peça da qual a tese foi extraída (ex.: "Contrarrazões de apelação", "Parecer")
@@ -231,7 +231,8 @@ Também não se vislumbra o comprometimento da cadeia de custódia: a droga foi 
 
 
 ```
-### Prompt para "multidocumentos" (para uso em API)
+### **Curiosidade:** prompt para "multidocumentos" em API
+> Observe o uso de metadados para identificar a fonte da informação (ancoragem).
 
 ```markdown
 <documents>
