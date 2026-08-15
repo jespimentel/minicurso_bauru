@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -865,102 +865,122 @@ Se isso acontecer, estruture os prompts exclusivamente com Markdown (Ex.: # SEÇ
 </code></pre></div>
 <h3 id="extrator-de-teses-juridicas-reaproveitaveis">Extrator de teses jurídicas reaproveitáveis<a class="headerlink" href="#extrator-de-teses-juridicas-reaproveitaveis" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>&lt;contexto&gt;
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Você receberá o texto de uma peça processual (sentença, razões de apelação, parecer, contrarrazões etc.). Seu objetivo é extrair as teses jurídicas reaproveitáveis contidas na peça e transformá-las em unidades autônomas de conhecimento, sanitizadas de qualquer dado do caso concreto, para compor uma base de teses que será usada futuramente na elaboração de outras peças.
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Você receberá o conteúdo de uma peça processual (sentença, razões de apelação, parecer, contrarrazões etc.), colado como texto ou anexado como arquivo (PDF, DOCX, TXT ou MD). Extraia as teses jurídicas reaproveitáveis e transforme-as em notas autônomas no padrão Obsidian, sanitizadas do caso concreto, para um vault de teses com relacionamento via grafo (tags e wikilinks).
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>&lt;/contexto&gt;
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>&lt;tarefa&gt;
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Para o texto fornecido:
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">1.</span> Identifique cada tese jurídica autônoma (argumento, fundamento ou linha de raciocínio jurídico reaproveitável).
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">2.</span> Sanitize o conteúdo de cada tese, removendo o vínculo com o caso concreto.
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">3.</span> Gere, para CADA tese, um bloco markdown independente, com cabeçalho YAML de metadados seguido do texto da tese.
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">4.</span> Não funda teses distintas em um único bloco, mesmo que tratem de temas próximos — cada raciocínio autônomo é uma unidade separada.
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>&lt;/tarefa&gt;
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>&lt;criterios_selecao&gt;
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>Extraia apenas teses que:
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="k">-</span><span class="w"> </span>possuam fundamentação jurídica consistente (não meras alegações factuais);
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="k">-</span><span class="w"> </span>sejam potencialmente aplicáveis a outros casos, independentemente dos fatos concretos;
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="k">-</span><span class="w"> </span>contenham raciocínio jurídico estruturado (não apenas citação isolada de lei ou julgado, sem articulação argumentativa);
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="k">-</span><span class="w"> </span>agreguem valor argumentativo real para uso futuro.
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>&lt;entrada&gt;
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>- Texto colado: use como está.
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>- .txt/.md: leia o conteúdo do arquivo.
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>- .docx: extraia o texto na ordem dos parágrafos, ignorando cabeçalho/rodapé/numeração que não integrem o corpo.
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>- .pdf: extraia o texto; se digitalizado sem camada de texto, aplique OCR. Ignore marca d&#39;água, numeração e cabeçalho/rodapé repetidos.
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>- Se o formato não for suportado ou o texto não for legível, informe ao usuário e não prossiga.
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>- Se o número do processo de origem for identificável, registre-o em `processo_origem`. Nunca use esse número, nem o nome do arquivo original, como base do campo `arquivo`.
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>&lt;/entrada&gt;
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>&lt;tarefa&gt;
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>1. Identifique cada tese jurídica autônoma (argumento, fundamento ou raciocínio reaproveitável).
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>2. Sanitize cada tese, removendo o vínculo com o caso concreto.
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>3. Gere, para cada tese, uma nota markdown independente (frontmatter YAML + texto), pronta para colar em arquivo após remoção do fence.
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>&lt;/tarefa&gt;
 <a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>Se não houver nenhuma tese reaproveitável no texto, responda apenas: &quot;Nenhuma tese reaproveitável identificada no texto fornecido.&quot; Não produza blocos vazios.
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>&lt;/criterios_selecao&gt;
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>&lt;sanitizacao&gt;
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>Remova ou generalize, em cada tese:
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="k">-</span><span class="w"> </span>nomes de pessoas (substitua por &quot;o acusado&quot;, &quot;a vítima&quot;, &quot;a testemunha&quot;, &quot;o apelante&quot; etc., conforme o papel processual);
-<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="k">-</span><span class="w"> </span>datas, locais e valores específicos do caso;
-<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="k">-</span><span class="w"> </span>número do processo e referências a documentos específicos dos autos (ex.: &quot;fls. 45&quot;, &quot;auto de exibição de fls. 12&quot;);
-<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="k">-</span><span class="w"> </span>qualquer outro detalhe factual único do caso concreto.
-<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>
-<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>Preserve integralmente:
-<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="k">-</span><span class="w"> </span>os fundamentos jurídicos e a estrutura argumentativa;
-<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="k">-</span><span class="w"> </span>citações de jurisprudência, com identificação completa (tribunal, órgão julgador, relator, número, data);
-<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="k">-</span><span class="w"> </span>referências a diplomas legais;
-<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="k">-</span><span class="w"> </span>o raciocínio jurídico tal como foi construído.
-<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>&lt;/sanitizacao&gt;
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>&lt;criterios_selecao&gt;
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>Extraia apenas teses que:
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>- tenham fundamentação jurídica consistente (não meras alegações factuais);
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>- sejam aplicáveis a outros casos, independentemente dos fatos concretos;
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>- contenham raciocínio estruturado (não citação isolada sem articulação argumentativa);
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>- agreguem valor argumentativo real.
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>Não funda teses distintas em uma nota, mesmo que próximas em tema. Duas teses só são a mesma se compartilharem o mesmo fundamento jurídico central; temas próximos com fundamentos distintos (ex.: cadeia de custódia por lacração vs. por continuidade da guarda) são notas separadas.
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>Se não houver tese reaproveitável, responda apenas: &quot;Nenhuma tese reaproveitável identificada no texto fornecido.&quot; Não produza notas vazias.
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>Se houver mais de uma peça no material, identifique a origem de cada tese individualmente em `tipo_peca_origem`.
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>&lt;/criterios_selecao&gt;
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>&lt;sanitizacao&gt;
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>Remova/generalize: nomes de pessoas (use &quot;o acusado&quot;, &quot;a vítima&quot;, &quot;a testemunha&quot;, &quot;o apelante&quot; etc.); datas, locais e valores do caso; número do processo e referências a folhas/documentos dos autos; qualquer outro detalhe factual único. Vale também para `arquivo` e para o corpo do texto: número de processo, data e nome de arquivo de origem NUNCA aparecem ali. Exceção única: o campo `processo_origem`.
 <a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>
-<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>&lt;formato_saida&gt;
-<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>Para cada tese, produza um bloco de código markdown separado (```markdown ... ```), contendo:
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>Preserve integralmente: fundamentos jurídicos e estrutura argumentativa; citações de jurisprudência completas (tribunal, órgão, relator, número, data); dispositivos legais; o raciocínio tal como construído.
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>&lt;/sanitizacao&gt;
 <a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>
-<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="k">1.</span> Um cabeçalho YAML com os seguintes campos:
-<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span><span class="sb">`titulo`</span>: título curto e descritivo do tema jurídico da tese
-<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span><span class="sb">`area_direito`</span>: ramo do direito (ex.: &quot;Direito Processual Penal&quot;, &quot;Direito Penal&quot;)
-<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span><span class="sb">`tema`</span>: subtema mais específico (ex.: &quot;Abordagem policial e fundada suspeita&quot;)
-<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span><span class="sb">`tags`</span>: lista de 2 a 5 palavras-chave para busca futura
-<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span><span class="sb">`tipo_peca_origem`</span>: tipo da peça da qual a tese foi extraída (ex.: &quot;Contrarrazões de apelação&quot;, &quot;Parecer&quot;)
-<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span><span class="sb">`jurisprudencia`</span>: lista das referências jurisprudenciais citadas na tese (vazia se não houver)
-<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span><span class="sb">`legislacao`</span>: lista dos dispositivos legais citados na tese (vazia se não houver)
-<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>
-<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="k">2.</span> Após o <span class="sb">`---`</span> de fechamento do YAML, o texto sanitizado da tese, em parágrafos bem segmentados, exatamente como seria usado em uma peça (mantendo citações na íntegra).
-<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>
-<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>Apresente os blocos em sequência, um após o outro, sem texto de transição entre eles.
-<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>&lt;/formato_saida&gt;
-<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>
-<a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a><span class="gu">&lt;exemplo&gt;</span>
-<a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a><span class="gu">---</span>
-<a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>titulo: &quot;Fundada suspeita e abordagem policial&quot;
-<a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>area_direito: &quot;Direito Processual Penal&quot;
-<a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>tema: &quot;Abordagem policial e busca pessoal&quot;
-<a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>tags: [abordagem policial, fundada suspeita, busca pessoal]
-<a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a>tipo_peca_origem: &quot;Contrarrazões de apelação&quot;
-<a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>jurisprudencia: [&quot;RHC 229514 AgR/PE - STF, rel. Min. Gilmar Mendes&quot;]
-<a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a><span class="gu">legislacao: []</span>
-<a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a><span class="gu">---</span>
-<a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a>
-<a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a>Havia motivo para a abordagem, diante do comportamento adotado pelo acusado, como exposto adiante.
-<a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a>
-<a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a>Afinal, ele alterou sua rota diante da patrulha e trazia um volume na altura da cintura, que merecia a atenção do policiamento ostensivo.
-<a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a>
-<a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a>De fato, &quot;se um agente do Estado não puder realizar abordagem em via pública a partir de comportamentos suspeitos do alvo, tais como fuga, gesticulações e demais reações típicas, já conhecidas pela ciência aplicada à atividade policial, haverá sério comprometimento do exercício da segurança pública&quot; (Trecho de voto do relator Min. Gilmar Mendes, no RHC 229514 AgR/PE).
-<a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a>
-<a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a>---
-<a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a>titulo: &quot;Cadeia de custódia. Ausência de indícios de manipulação&quot;
-<a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a>area_direito: &quot;Direito Processual Penal&quot;
-<a id="__codelineno-3-74" name="__codelineno-3-74" href="#__codelineno-3-74"></a>tema: &quot;Cadeia de custódia da prova&quot;
-<a id="__codelineno-3-75" name="__codelineno-3-75" href="#__codelineno-3-75"></a>tags: [cadeia de custódia, prova, entorpecentes, nulidade]
-<a id="__codelineno-3-76" name="__codelineno-3-76" href="#__codelineno-3-76"></a>tipo_peca_origem: &quot;Contrarrazões de apelação&quot;
-<a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a>jurisprudencia: [&quot;AgRg no HC 895.816/SP - STJ, 5ª Turma, rel. Min. Daniela Teixeira, j. 1/7/2024, DJe 3/7/2024&quot;]
-<a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a><span class="gu">legislacao: []</span>
-<a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a><span class="gu">---</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>&lt;formato_saida&gt;
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>Cada tese vira uma nota em bloco de código markdown (abre com ` ```markdown `, fecha com ` ``` `), para exibição legível no chat. O conteúdo interno deve ser markdown puro, pronto para colar em `.md` após remover as linhas de fence.
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>Dentro do bloco, frontmatter YAML real: cada campo em linha própria (nunca texto corrido), delimitado por `---` em linha própria na abertura e no fechamento. Campos, nesta ordem:
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>- `arquivo`: slug derivado EXCLUSIVAMENTE do `titulo` (minúsculo, sem acento, hífen no lugar de espaço, sem caractere especial, sem processo/data/arquivo de origem), máx. 60 caracteres
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>- `titulo`: título curto da tese
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>- `area_direito`: ramo do direito, grafia fixa entre execuções (ex.: sempre &quot;Direito Processual Penal&quot;)
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>- `tema`: subtema específico, diferente do título — categoria reaproveitável por outras teses
+<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>- `tags`: 2 a 5 tags kebab-case, sem espaço, hierarquia opcional com &quot;/&quot; (ex.: processual-penal/cadeia-de-custodia)
+<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>- `tipo_peca_origem`: tipo da peça de origem
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>- `processo_origem`: número do processo se identificável (`&quot;&quot;` se não houver) — rastreabilidade interna, nunca usado no slug ou no corpo
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>- `jurisprudencia`: wikilinks `[[Nome curto - Tribunal]]` (vazia se não houver)
+<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>- `legislacao`: wikilinks `[[Art. X, dispositivo]]` (vazia se não houver)
+<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>- `relacionadas`: lista vazia `[]`
+<a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>
+<a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>Aspas duplas em todo valor string, inclusive itens de lista.
+<a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>
+<a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>Após o `---` de fechamento, texto sanitizado em parágrafos, como usado em peça. Ao citar jurisprudência/legislação no corpo, use o mesmo wikilink do frontmatter.
+<a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>
+<a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>Notas em sequência, cada uma em seu próprio bloco de código, sem texto de transição entre elas.
+<a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a>&lt;/formato_saida&gt;
+<a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>
+<a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a>&lt;exemplo&gt;
+<a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a>```markdown
+<a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a>---
+<a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a>arquivo: &quot;fundada-suspeita-abordagem-policial&quot;
+<a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a>titulo: &quot;Fundada suspeita e abordagem policial&quot;
+<a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a>area_direito: &quot;Direito Processual Penal&quot;
+<a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a>tema: &quot;Abordagem policial e busca pessoal&quot;
+<a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a>tags: [&quot;processual-penal/abordagem-policial&quot;, &quot;processual-penal/fundada-suspeita&quot;, &quot;prova/busca-pessoal&quot;]
+<a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a>tipo_peca_origem: &quot;Contrarrazões de apelação&quot;
+<a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a>processo_origem: &quot;1508929-45.2026.8.26.0451&quot;
+<a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a>jurisprudencia: [&quot;[[RHC 229514 AgR-PE - STF]]&quot;]
+<a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a>legislacao: []
+<a id="__codelineno-3-74" name="__codelineno-3-74" href="#__codelineno-3-74"></a>relacionadas: []
+<a id="__codelineno-3-75" name="__codelineno-3-75" href="#__codelineno-3-75"></a>---
+<a id="__codelineno-3-76" name="__codelineno-3-76" href="#__codelineno-3-76"></a>
+<a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a>Havia motivo para a abordagem, diante do comportamento adotado pelo acusado, como exposto adiante.
+<a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a>
+<a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a>Afinal, ele alterou sua rota diante da patrulha e trazia um volume na altura da cintura, que merecia a atenção do policiamento ostensivo.
 <a id="__codelineno-3-80" name="__codelineno-3-80" href="#__codelineno-3-80"></a>
-<a id="__codelineno-3-81" name="__codelineno-3-81" href="#__codelineno-3-81"></a>Também não se vislumbra o comprometimento da cadeia de custódia: a droga foi regularmente apreendida, descrita em auto de exibição, referida nos depoimentos e discriminada em laudo.
-<a id="__codelineno-3-82" name="__codelineno-3-82" href="#__codelineno-3-82"></a>
-<a id="__codelineno-3-83" name="__codelineno-3-83" href="#__codelineno-3-83"></a>É o suficiente, quando não há indício algum de que a prova foi manipulada ou adulterada, nos termos do que estabelece a jurisprudência em vigor.
-<a id="__codelineno-3-84" name="__codelineno-3-84" href="#__codelineno-3-84"></a>
-<a id="__codelineno-3-85" name="__codelineno-3-85" href="#__codelineno-3-85"></a>&lt;/exemplo&gt;
-<a id="__codelineno-3-86" name="__codelineno-3-86" href="#__codelineno-3-86"></a>
-<a id="__codelineno-3-87" name="__codelineno-3-87" href="#__codelineno-3-87"></a>&lt;observacoes_importantes&gt;
-<a id="__codelineno-3-88" name="__codelineno-3-88" href="#__codelineno-3-88"></a><span class="k">-</span><span class="w"> </span>Use linguagem jurídica técnica e precisa.
-<a id="__codelineno-3-89" name="__codelineno-3-89" href="#__codelineno-3-89"></a><span class="k">-</span><span class="w"> </span>Preserve na íntegra as citações jurisprudenciais e doutrinárias.
-<a id="__codelineno-3-90" name="__codelineno-3-90" href="#__codelineno-3-90"></a><span class="k">-</span><span class="w"> </span>Não invente jurisprudência, legislação ou metadados que não constem ou não sejam inferíveis do texto original.
-<a id="__codelineno-3-91" name="__codelineno-3-91" href="#__codelineno-3-91"></a><span class="k">-</span><span class="w"> </span>Não acrescente comentários, observações, perguntas ou texto fora dos blocos markdown especificados.
-<a id="__codelineno-3-92" name="__codelineno-3-92" href="#__codelineno-3-92"></a><span class="k">-</span><span class="w"> </span>Não gere blocos duplicados para a mesma tese.
-<a id="__codelineno-3-93" name="__codelineno-3-93" href="#__codelineno-3-93"></a>&lt;/observacoes_importantes&gt;
-<a id="__codelineno-3-94" name="__codelineno-3-94" href="#__codelineno-3-94"></a>
-<a id="__codelineno-3-95" name="__codelineno-3-95" href="#__codelineno-3-95"></a>&lt;texto_processual&gt;
-<a id="__codelineno-3-96" name="__codelineno-3-96" href="#__codelineno-3-96"></a>[INSERIR TEXTO DA PEÇA PROCESSUAL AQUI]
-<a id="__codelineno-3-97" name="__codelineno-3-97" href="#__codelineno-3-97"></a>&lt;/texto_processual&gt;
+<a id="__codelineno-3-81" name="__codelineno-3-81" href="#__codelineno-3-81"></a>De fato, &quot;se um agente do Estado não puder realizar abordagem em via pública a partir de comportamentos suspeitos do alvo, tais como fuga, gesticulações e demais reações típicas, já conhecidas pela ciência aplicada à atividade policial, haverá sério comprometimento do exercício da segurança pública&quot; (Trecho de voto do relator Min. Gilmar Mendes, no [[RHC 229514 AgR-PE - STF]]).
+<a id="__codelineno-3-82" name="__codelineno-3-82" href="#__codelineno-3-82"></a>```
+<a id="__codelineno-3-83" name="__codelineno-3-83" href="#__codelineno-3-83"></a>
+<a id="__codelineno-3-84" name="__codelineno-3-84" href="#__codelineno-3-84"></a>```markdown
+<a id="__codelineno-3-85" name="__codelineno-3-85" href="#__codelineno-3-85"></a>---
+<a id="__codelineno-3-86" name="__codelineno-3-86" href="#__codelineno-3-86"></a>arquivo: &quot;cadeia-de-custodia-ausencia-indicios-manipulacao&quot;
+<a id="__codelineno-3-87" name="__codelineno-3-87" href="#__codelineno-3-87"></a>titulo: &quot;Cadeia de custódia. Ausência de indícios de manipulação&quot;
+<a id="__codelineno-3-88" name="__codelineno-3-88" href="#__codelineno-3-88"></a>area_direito: &quot;Direito Processual Penal&quot;
+<a id="__codelineno-3-89" name="__codelineno-3-89" href="#__codelineno-3-89"></a>tema: &quot;Cadeia de custódia da prova&quot;
+<a id="__codelineno-3-90" name="__codelineno-3-90" href="#__codelineno-3-90"></a>tags: [&quot;processual-penal/cadeia-de-custodia&quot;, &quot;prova/entorpecentes&quot;, &quot;nulidade&quot;]
+<a id="__codelineno-3-91" name="__codelineno-3-91" href="#__codelineno-3-91"></a>tipo_peca_origem: &quot;Contrarrazões de apelação&quot;
+<a id="__codelineno-3-92" name="__codelineno-3-92" href="#__codelineno-3-92"></a>processo_origem: &quot;&quot;
+<a id="__codelineno-3-93" name="__codelineno-3-93" href="#__codelineno-3-93"></a>jurisprudencia: [&quot;[[AgRg no HC 895816-SP - STJ]]&quot;]
+<a id="__codelineno-3-94" name="__codelineno-3-94" href="#__codelineno-3-94"></a>legislacao: []
+<a id="__codelineno-3-95" name="__codelineno-3-95" href="#__codelineno-3-95"></a>relacionadas: []
+<a id="__codelineno-3-96" name="__codelineno-3-96" href="#__codelineno-3-96"></a>---
+<a id="__codelineno-3-97" name="__codelineno-3-97" href="#__codelineno-3-97"></a>
+<a id="__codelineno-3-98" name="__codelineno-3-98" href="#__codelineno-3-98"></a>Também não se vislumbra o comprometimento da cadeia de custódia: a droga foi regularmente apreendida, descrita em auto de exibição, referida nos depoimentos e discriminada em laudo.
+<a id="__codelineno-3-99" name="__codelineno-3-99" href="#__codelineno-3-99"></a>
+<a id="__codelineno-3-100" name="__codelineno-3-100" href="#__codelineno-3-100"></a>É o suficiente, quando não há indício algum de que a prova foi manipulada ou adulterada, nos termos do que estabelece a jurisprudência do [[STJ]] no [[AgRg no HC 895816-SP - STJ]], julgado pela 5ª Turma, rel. Min. Daniela Teixeira, em 1/7/2024, DJe 3/7/2024.
+<a id="__codelineno-3-101" name="__codelineno-3-101" href="#__codelineno-3-101"></a>```
+<a id="__codelineno-3-102" name="__codelineno-3-102" href="#__codelineno-3-102"></a>&lt;/exemplo&gt;
+<a id="__codelineno-3-103" name="__codelineno-3-103" href="#__codelineno-3-103"></a>
+<a id="__codelineno-3-104" name="__codelineno-3-104" href="#__codelineno-3-104"></a>&lt;observacoes_importantes&gt;
+<a id="__codelineno-3-105" name="__codelineno-3-105" href="#__codelineno-3-105"></a>- Linguagem jurídica técnica e precisa.
+<a id="__codelineno-3-106" name="__codelineno-3-106" href="#__codelineno-3-106"></a>- Preserve citações na íntegra, apenas envolvendo o nome do precedente em wikilink.
+<a id="__codelineno-3-107" name="__codelineno-3-107" href="#__codelineno-3-107"></a>- Não invente jurisprudência, legislação ou metadados não inferíveis do texto original.
+<a id="__codelineno-3-108" name="__codelineno-3-108" href="#__codelineno-3-108"></a>- Não acrescente comentários fora das notas.
+<a id="__codelineno-3-109" name="__codelineno-3-109" href="#__codelineno-3-109"></a>- Não gere notas duplicadas (critério em `criterios_selecao`).
+<a id="__codelineno-3-110" name="__codelineno-3-110" href="#__codelineno-3-110"></a>- Sem visibilidade do vault: não invente vínculos com teses já salvas; relacionamento emerge de tags e wikilinks compartilhados.
+<a id="__codelineno-3-111" name="__codelineno-3-111" href="#__codelineno-3-111"></a>- Frontmatter YAML sempre com quebra de linha real entre campos, mesmo dentro do bloco de código.
+<a id="__codelineno-3-112" name="__codelineno-3-112" href="#__codelineno-3-112"></a>- Antes de salvar como `.md`, remova as linhas ` ```markdown ` e ` ``` `.
+<a id="__codelineno-3-113" name="__codelineno-3-113" href="#__codelineno-3-113"></a>&lt;/observacoes_importantes&gt;
+<a id="__codelineno-3-114" name="__codelineno-3-114" href="#__codelineno-3-114"></a>
+<a id="__codelineno-3-115" name="__codelineno-3-115" href="#__codelineno-3-115"></a>&lt;texto_processual&gt;
+<a id="__codelineno-3-116" name="__codelineno-3-116" href="#__codelineno-3-116"></a>[TEXTO COLADO OU EXTRAÍDO DO ARQUIVO SERÁ INSERIDO AQUI]
+<a id="__codelineno-3-117" name="__codelineno-3-117" href="#__codelineno-3-117"></a>&lt;/texto_processual&gt;
 </code></pre></div>
 <h3 id="curiosidade-prompt-para-multidocumentos-em-api"><strong>Curiosidade:</strong> prompt para "multidocumentos" em API<a class="headerlink" href="#curiosidade-prompt-para-multidocumentos-em-api" title="Permanent link">&para;</a></h3>
 <blockquote>
@@ -1097,7 +1117,7 @@ Se isso acontecer, estruture os prompts exclusivamente com Markdown (Ex.: # SEÇ
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.top", "navigation.sections", "navigation.footer", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

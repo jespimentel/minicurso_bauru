@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -637,72 +637,71 @@
 <p>A extensão oficial coloca o Claude Code dentro do VS Code, sem precisar usar o terminal. Ela aparece num painel lateral e mostra, em tempo real, as mudanças que o Claude propõe: cada alteração vem lado a lado (o texto atual e o novo), e você decide item a item se aceita, recusa ou pede um ajuste. Há dois modos de trabalho. No modo normal, o Claude pede sua confirmação a cada mudança. No modo de planejamento, ele primeiro apresenta um plano completo, que você lê e comenta antes de autorizá-lo a começar. Na prática, o Claude atua sobre os arquivos do seu projeto: lê, edita, cria pequenos programas e executa tarefas por conta própria, sempre sob seu controle. Também pode se conectar a fontes externas (como o seu Google Drive) para buscar informação enquanto trabalha. É o ambiente indicado para quem quer construir e organizar ferramentas com mais controle</p>
 <h2 id="claudeai-x-cowork-x-vs-code-com-extensao-do-claude">Claude.ai X Cowork X VS Code (com extensão do Claude)<a class="headerlink" href="#claudeai-x-cowork-x-vs-code-com-extensao-do-claude" title="Permanent link">&para;</a></h2>
 <table>
-  <thead>
-    <tr>
-      <th>Critério</th>
-      <th>Claude.ai</th>
-      <th>Cowork</th>
-      <th>VS Code (Extensão do Claude)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Interface</strong></td>
-      <td>Navegador e app desktop (formato chat)</td>
-      <td>App desktop com GUI (aba dentro do Claude Desktop)</td>
-      <td>Painel integrado à IDE e terminal</td>
-    </tr>
-    <tr>
-      <td><strong>Público-alvo</strong></td>
-      <td>Uso geral</td>
-      <td>Não-desenvolvedores (você descreve o resultado e o Claude executa)</td>
-      <td>Desenvolvedores e usuários avançados</td>
-    </tr>
-    <tr>
-      <td><strong>Instalação / Onde a skill vive</strong></td>
-      <td>Na conta do usuário (upload do .zip em Customize -> Skills)</td>
-      <td>Mesma conta (sincroniza Web e Desktop) ou via plugins</td>
-      <td>Localmente no disco, no arquivo .claude/skills/ (sem upload)</td>
-    </tr>
-    <tr>
-      <td><strong>Execução de código</strong></td>
-      <td>Sandbox (VM) em nuvem da Anthropic</td>
-      <td>VM isolada na máquina do usuário, separada do SO</td>
-      <td>Máquina real e terminal local do usuário</td>
-    </tr>
-    <tr>
-      <td><strong>Acesso a arquivos</strong></td>
-      <td>Apenas arquivos da conversa e conectores ativos</td>
-      <td>Apenas pastas explicitamente autorizadas pelo usuário</td>
-      <td>Acesso direto ao filesystem do projeto aberto</td>
-    </tr>
-    <tr>
-      <td><strong>MCP (ex. Google Drive)</strong></td>
-      <td>Conector nativo pela interface (UI)</td>
-      <td>Conector nativo pela interface (mesmas permissões do chat)</td>
-      <td>Configurado via .mcp.json ou claude mcp add</td>
-    </tr>
-    <tr>
-      <td><strong>Criação e otimização de skill</strong></td>
-      <td>Via skill-creator com ciclo manual (rascunhar, rodar, revisar)</td>
-      <td>Usa skills e plugins existentes; não há ciclo de otimização</td>
-      <td>Via skill-creator, com plugin opcional que automatiza a geração e execução de casos de teste e propõe ajustes de gatilho (revisão final manual)</td>
-    </tr>
-    <tr>
-      <td><strong>Compartilhamento</strong></td>
-      <td>Recursos padrão de compartilhamento da conta do produto</td>
-      <td>Plugins (skills, conectores, subagentes) e tarefas agendadas</td>
-      <td>Controle de versão via Git</td>
-    </tr>
-    <tr>
-      <td><strong>Melhor para</strong></td>
-      <td>Redigir, resumir e iterar textos ou ideias no dia a dia</td>
-      <td>Automação de tarefas multi-etapa com arquivos locais (sem código)</td>
-      <td>Construir, testar e versionar skills e pipelines locais em Python</td>
-    </tr>
-  </tbody>
+<thead>
+<tr>
+<th>Critério</th>
+<th>Claude.ai</th>
+<th>Cowork</th>
+<th>VS Code (Extensão do Claude)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Interface</strong></td>
+<td>Navegador e app desktop (formato chat)</td>
+<td>App desktop com GUI (aba dentro do Claude Desktop)</td>
+<td>Painel integrado à IDE e terminal</td>
+</tr>
+<tr>
+<td><strong>Público-alvo</strong></td>
+<td>Uso geral</td>
+<td>Não-desenvolvedores (você descreve o resultado e o Claude executa)</td>
+<td>Desenvolvedores e usuários avançados</td>
+</tr>
+<tr>
+<td><strong>Instalação / Onde a skill vive</strong></td>
+<td>Na conta do usuário (upload do .zip em Customize -&gt; Skills)</td>
+<td>Mesma conta (sincroniza Web e Desktop) ou via plugins</td>
+<td>Localmente no disco, no arquivo .claude/skills/ (sem upload)</td>
+</tr>
+<tr>
+<td><strong>Execução de código</strong></td>
+<td>Sandbox (VM) em nuvem da Anthropic</td>
+<td>VM isolada na máquina do usuário, separada do SO</td>
+<td>Máquina real e terminal local do usuário</td>
+</tr>
+<tr>
+<td><strong>Acesso a arquivos</strong></td>
+<td>Apenas arquivos da conversa e conectores ativos</td>
+<td>Apenas pastas explicitamente autorizadas pelo usuário</td>
+<td>Acesso direto ao filesystem do projeto aberto</td>
+</tr>
+<tr>
+<td><strong>MCP (ex. Google Drive)</strong></td>
+<td>Conector nativo pela interface (UI)</td>
+<td>Conector nativo pela interface (mesmas permissões do chat)</td>
+<td>Configurado via .mcp.json ou claude mcp add</td>
+</tr>
+<tr>
+<td><strong>Criação e otimização de skill</strong></td>
+<td>Via skill-creator com ciclo manual (rascunhar, rodar, revisar)</td>
+<td>Usa skills e plugins existentes; não há ciclo de otimização</td>
+<td>Via skill-creator, com plugin opcional que automatiza a geração e execução de casos de teste e propõe ajustes de gatilho (revisão final manual)</td>
+</tr>
+<tr>
+<td><strong>Compartilhamento</strong></td>
+<td>Recursos padrão de compartilhamento da conta do produto</td>
+<td>Plugins (skills, conectores, subagentes) e tarefas agendadas</td>
+<td>Controle de versão via Git</td>
+</tr>
+<tr>
+<td><strong>Melhor para</strong></td>
+<td>Redigir, resumir e iterar textos ou ideias no dia a dia</td>
+<td>Automação de tarefas multi-etapa com arquivos locais (sem código)</td>
+<td>Construir, testar e versionar skills e pipelines locais em Python</td>
+</tr>
+</tbody>
 </table>
-
 <h2 id="trabalhando-no-vs-code">Trabalhando no VS Code<a class="headerlink" href="#trabalhando-no-vs-code" title="Permanent link">&para;</a></h2>
 <h3 id="instalacao-e-configuracao-inicial">Instalação e Configuração Inicial<a class="headerlink" href="#instalacao-e-configuracao-inicial" title="Permanent link">&para;</a></h3>
 <ul>
@@ -884,7 +883,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.top", "navigation.sections", "navigation.footer", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
