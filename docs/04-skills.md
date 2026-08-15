@@ -427,7 +427,7 @@ Google Drive (externo, via MCP)
     └── *.md                   # modelos de peças
 ```
 
-!!! note "Editando Skills" 
+!!! note "Editando Skills"
     Peça para o Claude apontar, na conversa, qual trecho do SKILL.md (ou documento de referência) foi responsável por um problema detectado na saída. Aí você edita, ao invés de tentar adivinhar. A Skill `skill-creator` pode comparar performances da skill original com a da skill editada e contribuir para a otimização da tarefa.
 
 ## Referências

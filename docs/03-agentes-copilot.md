@@ -74,7 +74,7 @@ na Instituição.
 | Busca inteligente nos documentos do tenant (SharePoint) | Não — busca simples, limitada a arquivos de até ~7 MB | Sim — exige licença M365 Copilot no tenant e agente autenticado via conta Microsoft (respeita as permissões de cada usuário) |
 | Criação de agentes no Copilot Studio | Não — exige licença | Sim |
 
-Fonte: Documentação oficial do Microsoft Learn (learn.microsoft.com). Acesso em jul. 2026. Licenciamentos sujeitos a alteração. 
+*Fonte: Documentação oficial do Microsoft Learn (learn.microsoft.com). Acesso em jul. 2026. Licenciamentos sujeitos a alteração.*
 
 ## Função "Conhecimento" (Premium)
 
@@ -86,8 +86,8 @@ Base de conhecimento por recuperação (RAG): o agente busca trechos relevantes 
 ![Configuração de Conhecimento no Agent Builder](img/copilot_premium_conhecimento.png)
 *Configuração da função "Conhecimento" no Agent Builder, com as fontes restritas a uma pasta específica do SharePoint ("denuncias"). Fonte: O autor. Julho de 2026.*
 
-!!! tip "A recuperação é sempre probabilística" 
-      O trecho certo pode não vir. Por isso, travas antialucinação ("base exclusiva no PDF", "NÃO CONSTA NO PDF", proibição de inferência) e template ficam **no prompt**, nunca só no conhecimento. Ao usar modelos como conhecimento, marque sempre "dados fictícios, não incorporar" *dentro do próprio arquivo*, para evitar que o agente use os nomes/valores neles contidos.
+!!! tip "A recuperação é sempre probabilística"
+    O trecho certo pode não vir. Por isso, travas antialucinação ("base exclusiva no PDF", "NÃO CONSTA NO PDF", proibição de inferência) e template ficam **no prompt**, nunca só no conhecimento. Ao usar modelos como conhecimento, marque sempre "dados fictícios, não incorporar" *dentro do próprio arquivo*, para evitar que o agente use os nomes/valores neles contidos.
 
 ![Exemplo de Ancoragem](img/exemplo_ancoragem.png)
 *Neste exemplo, sem pedido explícito no prompt, o Copilot Premium identificou uma peça processual relacionada a um caso análogo, elaborada por outro colega integrante da mesma Promotoria de Justiça, e a indicou como sugestão para a resolução do procedimento em análise. Fonte: O autor. Julho de 2026.*
@@ -208,8 +208,8 @@ Para reforçar a tese jurídica fornecida pelo usuário, pesquise doutrina e jur
 
 ## Referências
 
--   [MICROSOFT. Learn Copilot Studio](https://learn.microsoft.com/pt-br/microsoft-copilot-studio/)
+- [MICROSOFT. Learn Copilot Studio](https://learn.microsoft.com/pt-br/microsoft-copilot-studio/)
 
--   [OPENAI. A Practical Guide to Building Agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf)
+- [OPENAI. A Practical Guide to Building Agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf)
 
--   [TECHCOMMUNITY MICROSOFT. A closer look at Work IQ](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/a-closer-look-at-work-iq/4499789)
+- [TECHCOMMUNITY MICROSOFT. A closer look at Work IQ](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/a-closer-look-at-work-iq/4499789)

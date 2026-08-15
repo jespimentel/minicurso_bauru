@@ -8,72 +8,17 @@ A extensão oficial coloca o Claude Code dentro do VS Code, sem precisar usar o 
 
 ## Claude.ai X Cowork X VS Code (com extensão do Claude)
 
-<table>
-  <thead>
-    <tr>
-      <th>Critério</th>
-      <th>Claude.ai</th>
-      <th>Cowork</th>
-      <th>VS Code (Extensão do Claude)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Interface</strong></td>
-      <td>Navegador e app desktop (formato chat)</td>
-      <td>App desktop com GUI (aba dentro do Claude Desktop)</td>
-      <td>Painel integrado à IDE e terminal</td>
-    </tr>
-    <tr>
-      <td><strong>Público-alvo</strong></td>
-      <td>Uso geral</td>
-      <td>Não-desenvolvedores (você descreve o resultado e o Claude executa)</td>
-      <td>Desenvolvedores e usuários avançados</td>
-    </tr>
-    <tr>
-      <td><strong>Instalação / Onde a skill vive</strong></td>
-      <td>Na conta do usuário (upload do .zip em Customize -> Skills)</td>
-      <td>Mesma conta (sincroniza Web e Desktop) ou via plugins</td>
-      <td>Localmente no disco, no arquivo .claude/skills/ (sem upload)</td>
-    </tr>
-    <tr>
-      <td><strong>Execução de código</strong></td>
-      <td>Sandbox (VM) em nuvem da Anthropic</td>
-      <td>VM isolada na máquina do usuário, separada do SO</td>
-      <td>Máquina real e terminal local do usuário</td>
-    </tr>
-    <tr>
-      <td><strong>Acesso a arquivos</strong></td>
-      <td>Apenas arquivos da conversa e conectores ativos</td>
-      <td>Apenas pastas explicitamente autorizadas pelo usuário</td>
-      <td>Acesso direto ao filesystem do projeto aberto</td>
-    </tr>
-    <tr>
-      <td><strong>MCP (ex. Google Drive)</strong></td>
-      <td>Conector nativo pela interface (UI)</td>
-      <td>Conector nativo pela interface (mesmas permissões do chat)</td>
-      <td>Configurado via .mcp.json ou claude mcp add</td>
-    </tr>
-    <tr>
-      <td><strong>Criação e otimização de skill</strong></td>
-      <td>Via skill-creator com ciclo manual (rascunhar, rodar, revisar)</td>
-      <td>Usa skills e plugins existentes; não há ciclo de otimização</td>
-      <td>Via skill-creator, com plugin opcional que automatiza a geração e execução de casos de teste e propõe ajustes de gatilho (revisão final manual)</td>
-    </tr>
-    <tr>
-      <td><strong>Compartilhamento</strong></td>
-      <td>Recursos padrão de compartilhamento da conta do produto</td>
-      <td>Plugins (skills, conectores, subagentes) e tarefas agendadas</td>
-      <td>Controle de versão via Git</td>
-    </tr>
-    <tr>
-      <td><strong>Melhor para</strong></td>
-      <td>Redigir, resumir e iterar textos ou ideias no dia a dia</td>
-      <td>Automação de tarefas multi-etapa com arquivos locais (sem código)</td>
-      <td>Construir, testar e versionar skills e pipelines locais em Python</td>
-    </tr>
-  </tbody>
-</table>
+| Critério | Claude.ai | Cowork | VS Code (Extensão do Claude) |
+|---|---|---|---|
+| **Interface** | Navegador e app desktop (formato chat) | App desktop com GUI (aba dentro do Claude Desktop) | Painel integrado à IDE e terminal |
+| **Público-alvo** | Uso geral | Não-desenvolvedores (você descreve o resultado e o Claude executa) | Desenvolvedores e usuários avançados |
+| **Instalação / Onde a skill vive** | Na conta do usuário (upload do .zip em Customize -> Skills) | Mesma conta (sincroniza Web e Desktop) ou via plugins | Localmente no disco, no arquivo .claude/skills/ (sem upload) |
+| **Execução de código** | Sandbox (VM) em nuvem da Anthropic | VM isolada na máquina do usuário, separada do SO | Máquina real e terminal local do usuário |
+| **Acesso a arquivos** | Apenas arquivos da conversa e conectores ativos | Apenas pastas explicitamente autorizadas pelo usuário | Acesso direto ao filesystem do projeto aberto |
+| **MCP (ex. Google Drive)** | Conector nativo pela interface (UI) | Conector nativo pela interface (mesmas permissões do chat) | Configurado via .mcp.json ou claude mcp add |
+| **Criação e otimização de skill** | Via skill-creator com ciclo manual (rascunhar, rodar, revisar) | Usa skills e plugins existentes; não há ciclo de otimização | Via skill-creator, com plugin opcional que automatiza a geração e execução de casos de teste e propõe ajustes de gatilho (revisão final manual) |
+| **Compartilhamento** | Recursos padrão de compartilhamento da conta do produto | Plugins (skills, conectores, subagentes) e tarefas agendadas | Controle de versão via Git |
+| **Melhor para** | Redigir, resumir e iterar textos ou ideias no dia a dia | Automação de tarefas multi-etapa com arquivos locais (sem código) | Construir, testar e versionar skills e pipelines locais em Python |
 
 ## Trabalhando no VS Code
 
