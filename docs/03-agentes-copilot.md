@@ -243,8 +243,9 @@ Com o relatório, o encaminhamento e a fundamentação confirmados, redija a Man
 - Sequência obrigatória: siga o fluxo definido, validando cada etapa antes de avançar.
 
 ```
+> Se preferir, use e compartilhe com os colegas o [Steve](https://m365.cloud.microsoft/chat/?titleId=T_e243034b-2fbf-3526-3a9a-7d87d9561a43&source=embedded-builder) original (é preciso estar logado na conta corporativa). Ele foi "nomeado" antes da Valentina e ainda faz um bom trabalho.
+
 ![Agente Steve no Copilot](img/steve.png)
->Se preferir, use e compartilhe com os colegas o [Steve](https://m365.cloud.microsoft/chat/?titleId=T_e243034b-2fbf-3526-3a9a-7d87d9561a43&source=embedded-builder) original (é preciso estar logado na conta corporativa). Ele veio antes da Valentina e faz um bom trabalho.
 
 ### Criação de um "agente" para Análise Processual Esquemática Anonimizada
 
