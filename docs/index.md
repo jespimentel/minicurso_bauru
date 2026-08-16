@@ -6,7 +6,7 @@ title: "Prompts, Skills e Agentes de IA para a Promotoria de Justiça"
 
 A IA Generativa pode servir à execução de tarefas da Promotoria de Justiça, sejam elas jurídicas ou administrativas, especialmente quando usada com as técnicas e ferramentas mais adequadas. Este minicurso aborda o tema com exemplos práticos do nosso dia a dia.
 
-**José Eduardo de Souza Pimentel**
+**José Eduardo de Souza Pimentel** (2026)
 
 [Blog](https://jespimentel.blogspot.com/) | [GitHub](https://github.com/jespimentel) | [YouTube](https://www.youtube.com/@jespimentel)
 
